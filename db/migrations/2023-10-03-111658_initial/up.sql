@@ -13,12 +13,12 @@ CREATE TYPE user_role AS ENUM ('admin', 'shelter', 'user');
 -- Create the Pet table
 CREATE TABLE "Pet" (
   pet_id serial PRIMARY KEY,
-  name VARCHAR,
-  specie VARCHAR,
+  name VARCHAR(50),
+  specie VARCHAR(50),
   gender gender,
-  characteristics VARCHAR,
-  health VARCHAR,
-  description VARCHAR,
+  characteristics VARCHAR(255),
+  health VARCHAR(50),
+  description VARCHAR(500),
   size size,
   weight FLOAT,
   birth_date TIMESTAMP,
@@ -29,15 +29,15 @@ CREATE TABLE "Pet" (
 
 -- Create the User table
 CREATE TABLE "User" (
-  user_id VARCHAR PRIMARY KEY,
-  username VARCHAR,
-  password VARCHAR,
-  email VARCHAR,
+  user_id CHAR(25) PRIMARY KEY,
+  username VARCHAR(100),
+  password VARCHAR(300),
+  email VARCHAR(300),
   role user_role,
-  address VARCHAR,
-  city VARCHAR,
-  phone VARCHAR,
-  image_url VARCHAR,
+  address VARCHAR(255),
+  city VARCHAR(50),
+  phone VARCHAR(12),
+  image_url VARCHAR(500),
   settings JSONB,
   created_at TIMESTAMP default now(),
   updated_at TIMESTAMP default now()
@@ -45,16 +45,16 @@ CREATE TABLE "User" (
 
 -- Create the Shelter table
 CREATE TABLE "Shelter" (
-  shelter_id VARCHAR PRIMARY KEY,
-  name VARCHAR,
-  address VARCHAR,
-  city VARCHAR,
-  phone VARCHAR,
-  email VARCHAR,
-  description VARCHAR,
-  website VARCHAR,
-  logo_image_url VARCHAR,
-  gallery_image_url VARCHAR,
+  shelter_id CHAR(25) PRIMARY KEY,
+  name VARCHAR(100),
+  address VARCHAR(255),
+  city VARCHAR(50),
+  phone VARCHAR(12),
+  email VARCHAR(300),
+  description VARCHAR(500),
+  website VARCHAR(300),
+  logo_image_url VARCHAR(500),
+  gallery_image_url VARCHAR(500),
   created_at TIMESTAMP default now(),
   updated_at TIMESTAMP default now()
 );
@@ -63,13 +63,13 @@ CREATE TABLE "Shelter" (
 CREATE TABLE "Adoption" (
   id serial PRIMARY KEY,
   pet_id INTEGER,
-  user_id VARCHAR,
-  shelter_id VARCHAR,
+  user_id CHAR(25),
+  shelter_id CHAR(25),
   adopted_by_id INTEGER,
   status adoption_status,
-  extra_location VARCHAR,
+  extra_location VARCHAR(255),
   entry_date TIMESTAMP,
-  description VARCHAR,
+  description VARCHAR(255),
   created_at TIMESTAMP default now(),
   updated_at TIMESTAMP default now()
 );
