@@ -1,0 +1,19 @@
+# Use an official rust image as the base image
+FROM rust:latest
+
+# Install netcat, some strange bug rust image have to have it
+RUN apt-get update && apt-get install -y ncat && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install any additional dependencies needed for your Diesel migrations
+RUN cargo install diesel_cli --no-default-features --features postgres
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy your Diesel project into the container
+COPY . .
+
+# Command to run Diesel migrations
+# Wait until database is ready
+CMD ["sh", "-c", "while ! nc -z database 5432; do sleep 1; done; diesel migration run"]
