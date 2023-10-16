@@ -1,63 +1,75 @@
-# Pet Adoption CMS
-Pet Adoption CMS is an open-source content management system designed for pet adoption organizations. 
-This README provides instructions for setting up and running the project using Docker Compose.
+# CMS Pet Adoption Project
 
-## Prerequisites
-Before you begin, make sure you have the following installed:
+Welcome to the CMS Pet Adoption Project! This project uses Django, htmx, and TailwindCSS to create a content management system (CMS) focused on pet adoption. It's designed with Docker for easy local development and uses PostgreSQL as its database.
 
-- Docker
-- Docker Compose
+## Pre-requisites
 
-## Docker Compose
+- [Docker](https://www.docker.com/get-started)
+- [Docker Compose](https://docs.docker.com/compose/install/)
 
-The Docker Compose configurations allows you to easily set up and run the Pet Adoption CMS project. It includes two services:
+## Setup
 
-- **pets-database**: PostgreSQL database server for storing data.
-- **pets-diesel-migrate**: A container that runs Diesel migrations to set up the database schema.
+1. **Clone the repository**:
 
-## Getting Started to Development
+   ```bash
+   git clone https://github.com/your_username/cms-pet-adoption.git
+   cd cms-pet-adoption
 
-1. Clone this repository to your local machine.
+   ```
 
-2. Navigate to the project directory.
+2. **Configure environment variables**:
 
-3. Create a .env file in the project directory with the following environment variables:
+   - Create a `.env` file in the root directory.
+   - Fill in the necessary variables:
 
-    POSTGRES_DB=mydb
-    POSTGRES_USER=myuser
-    POSTGRES_PASSWORD=mypassword
+   ```env
+   DB_SERVICE_NAME=database
+   POSTGRES_DB=mydb
+   POSTGRES_USER=myuser
+   POSTGRES_PASSWORD=mypassword
 
-You can replace `mydb`, `myuser`, and `mypassword` with your preferred database configuration.
+   DEBUG=1
+   SQL_ENGINE=django.db.backends.postgresql
+   SQL_DATABASE=${POSTGRES_DB}
+   SQL_USER=${POSTGRES_USER}
+   SQL_PASSWORD=${POSTGRES_PASSWORD}
+   SQL_HOST=${DB_SERVICE_NAME}
+   SQL_PORT=5432
+   SECRET_KEY="django-insecure-n5(x*k+%5+g9gu@71#@)o=s3yrxmp%r^vc8wd+8eh5@2emz_5-"
 
-## Run development services
-Open a terminal and run the following command to start the Docker containers:
+   ```
 
-    docker-compose -f docker-compose-development.yml up  
+3. **Build and Start Containers**:
 
-`--build` don't do anything at this point
-to delete completele all use `docker-compose -f docker-compose-development.yml down`
+   ```bash
+   docker-compose up --build
 
-This will build and start the PostgreSQL database. If it's your first time you need to apply migrations first.
+   ```
 
-## Applying migrations
-To apply migrations, use the following command:
+4. **Migrate the Database**(after the containers have started):
 
-    docker-compose -f docker-compose-migration-run.yml up --build
+   ```bash
+   docker-compose exec app poetry run python manage.py migrate
 
-This command recreates the container from scratch and runs the migrations.
+   ```
 
-## Accessing the Application
-Database: PostgreSQL is running on port 5432 in the Docker container. You can access it using your preferred PostgreSQL client or connect your application to it.
+5. **Access the App**:
+   - Navigate to http://localhost:8000 in your browser.
 
-## Stopping the Containers
-To stop the Docker containers, open a terminal and press Ctrl+C. This will gracefully stop the containers. You can also use the following command:
+## How to Use
 
-    docker-compose -f docker-compose-development.yml down
+- The admin panel can be accessed at http://localhost:8000/admin.
+- Add, update, or remove pet adoption listings through the CMS interface.
+- Enjoy the ease of use, thanks to htmx and TailwindCSS.
 
-## Additional Configuration
-You can customize the database credentials and other environment variables by editing the `.env` file.
+## Contributing
 
-Modify the `docker-compose.yml` file to adjust port mappings or container names according to your project's requirements.
+Contributions are welcome! Feel free to open issues, submit pull requests, or propose new features.
+
+## Acknowledgements
+
+This project uses Docker for local development, Docker Compose for multi-container orchestration, and PostgreSQL as its database.
 
 ## License
-This project is licensed under the MIT License.
+
+This project is licensed under the MIT License. See the LICENSE file for more details.
