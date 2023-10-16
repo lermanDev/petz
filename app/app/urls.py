@@ -5,4 +5,5 @@ from django.shortcuts import redirect
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("hello-world/", include("adoption.urls")),
 ]

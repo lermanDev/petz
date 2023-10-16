@@ -1,9 +1,21 @@
 version: "3"
 
+x-app: &django-app
+  build:
+    context: .
+    dockerfile: django.Dockerfile
+  volumes:
+    - ./app:/app
+  depends_on:
+    - database
+  networks:
+    - app-network
+  restart: "unless-stopped"
+
 services:
   # PostgreSQL database service
   database:
-    container_name: ${DB_CONTAINER_NAME}
+    container_name: ${DB_SERVICE_NAME}
     image: postgres:latest
     environment:
       POSTGRES_DB: ${POSTGRES_DB}
@@ -14,17 +26,11 @@ services:
     networks:
       - app-network
   # Django service with poetry
-  app:
+  web:
+    <<: *django-app
     command: "poetry run python manage.py runserver 0.0.0.0:8000"
-    build:
-      context: .
-      dockerfile: Dockerfile.django
-    volumes:
-      - ./app:/app
     ports:
       - "8000:8000"
-    depends_on:
-      - database
     environment:
       DEBUG: ${DEBUG}
       SQL_ENGINE: ${SQL_ENGINE}
@@ -34,7 +40,9 @@ services:
       SQL_HOST: ${SQL_HOST}
       SQL_PORT: ${SQL_PORT}
       SECRET_KEY: ${SECRET_KEY}
-    networks:
-      - app-network
+  tailwind:
+    <<: *django-app
+    command: "poetry run python manage.py tailwind start"
+    tty: true
 networks:
   app-network:

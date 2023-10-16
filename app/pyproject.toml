@@ -12,6 +12,7 @@ psycopg2-binary = "^2.9.9"
 pytest = "^7.4.2"
 black = "^23.9.1"
 pytest-django = "^4.5.2"
+django-tailwind = "^3.6.0"
 
 
 [build-system]
