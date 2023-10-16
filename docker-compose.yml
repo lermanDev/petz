@@ -1,0 +1,40 @@
+version: "3"
+
+services:
+  # PostgreSQL database service
+  database:
+    container_name: ${DB_CONTAINER_NAME}
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5432:5432"
+    networks:
+      - app-network
+  # Django service with poetry
+  app:
+    command: "poetry run python manage.py runserver 0.0.0.0:8000"
+    build:
+      context: .
+      dockerfile: Dockerfile.django
+    volumes:
+      - ./app:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - database
+    environment:
+      DEBUG: ${DEBUG}
+      SQL_ENGINE: ${SQL_ENGINE}
+      SQL_DATABASE: ${SQL_DATABASE}
+      SQL_USER: ${SQL_USER}
+      SQL_PASSWORD: ${SQL_PASSWORD}
+      SQL_HOST: ${SQL_HOST}
+      SQL_PORT: ${SQL_PORT}
+      SECRET_KEY: ${SECRET_KEY}
+    networks:
+      - app-network
+networks:
+  app-network:
