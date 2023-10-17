@@ -15,8 +15,7 @@ x-app: &django-app
 services:
   # PostgreSQL database service
   database:
-    container_name: ${DB_SERVICE_NAME}
-    image: postgres:latest
+    image: postgres:14
     environment:
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}
@@ -37,7 +36,7 @@ services:
       SQL_DATABASE: ${SQL_DATABASE}
       SQL_USER: ${SQL_USER}
       SQL_PASSWORD: ${SQL_PASSWORD}
-      SQL_HOST: ${SQL_HOST}
+      SQL_HOST: database
       SQL_PORT: ${SQL_PORT}
       SECRET_KEY: ${SECRET_KEY}
   tailwind:
