@@ -6,4 +6,6 @@ from django.shortcuts import redirect
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("hello-world/", include("adoption.urls")),
+    path("weblog/", include("zinnia.urls")),
+    path("comments/", include("django_comments.urls")),
 ]
