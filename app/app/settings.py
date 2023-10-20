@@ -1,12 +1,6 @@
 from pathlib import Path
 import os
 
-# Solving smart_text deprecation from django 3
-import django
-from django.utils.encoding import smart_str
-
-django.utils.encoding.smart_text = smart_str
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -33,19 +27,13 @@ INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
-    "django.contrib.sites",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "django_comments",
-    "mptt",
-    "tagging",
     "tailwind",
-    "adoption",
-    "zinnia",
 ]
 
-TAILWIND_APP_NAME = "adoption"
+# TAILWIND_APP_NAME = "adoption"
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
@@ -72,9 +60,7 @@ TEMPLATES = [
                 "django.template.context_processors.debug",
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
-                "django.template.context_processors.i18n",
                 "django.contrib.messages.context_processors.messages",
-                "zinnia.context_processors.version",
             ],
         },
     },
@@ -88,12 +74,12 @@ WSGI_APPLICATION = "app.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": os.environ.get("SQL_ENGINE", "django.db.backends.sqlite3"),
-        "NAME": os.environ.get("SQL_DATABASE", BASE_DIR / "db.sqlite3"),
-        "USER": os.environ.get("SQL_USER", "user"),
-        "PASSWORD": os.environ.get("SQL_PASSWORD", "password"),
-        "HOST": os.environ.get("SQL_HOST", "localhost"),
-        "PORT": os.environ.get("SQL_PORT", "5432"),
+        "ENGINE": os.environ.get("DJANGO_SQL_ENGINE", "django.db.backends.sqlite3"),
+        "NAME": os.environ.get("DJANGO_SQL_DATABASE", BASE_DIR / "db.sqlite3"),
+        "USER": os.environ.get("DJANGO_SQL_USER", "user"),
+        "PASSWORD": os.environ.get("DJANGO_SQL_PASSWORD", "password"),
+        "HOST": os.environ.get("DJANGO_SQL_HOST", "localhost"),
+        "PORT": os.environ.get("DJANGO_SQL_PORT", "5432"),
     }
 }
 
@@ -137,8 +123,6 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 
 # TODO: in a future for production we can change the location of static files
 STATIC_ROOT = BASE_DIR / "local-cdb" / "static"
-
-SITE_ID = 1
 
 # MEDIA_URL = "/media/"
 

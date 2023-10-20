@@ -14,8 +14,8 @@ RUN pip3 install poetry
 
 RUN poetry install
 
-RUN poetry run python manage.py tailwind install;
-RUN poetry run python manage.py tailwind build;
-RUN poetry run python manage.py collectstatic --noinput; 
+# RUN poetry run python manage.py tailwind install;
+# RUN poetry run python manage.py tailwind build;
+# RUN poetry run python manage.py collectstatic --noinput; 
 
 # in a future for production
