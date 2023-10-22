@@ -1,0 +1,62 @@
+SECTIONS: 
+    HOME,
+    ADOPTA,
+        PERROS,
+        GATOS,
+        AVES,
+        ROEDORES,
+        REPTILES,
+        PECES,
+        OTROS MAMÍFEROS/ANIMALES
+    COLABORA,
+        ACOGE, disponibles para acogida
+        DONA, protectoras disponibles para donar
+        VOLUNTARIADO, protectoras disponibles para voluntariado
+    HISTORIAS, // asociadas a mascotas en adopción, protectoras y usuarios
+    PROTECTORAS/ABOUT US,
+    RECURSOS, //BLOG
+        PRIMEROS PASOS,
+        ALIMENTACION,
+        ENTRENAMIENTO,
+        EJERCICIO,
+        CUIDADOS,
+    EVENTOS, //BLOG
+    ABOUT US
+
+HOME:
+    Buscador
+    Add statistics to home, ex: waiting home, adopted, vaccinated.
+    Available pets, by especie?
+    Recursos adopcion(blog): primeros pasos, cuidados, alimentación.
+    MISION, VISION?
+    Proximos eventos.
+
+
+ADOPTA:
+    Busqueda: Ciudad, provincia, cp
+    Filtro: Especie
+    Age: bebe, joven, adulto, senior
+    Tamaño: pequeño, mediano, grande, gigante.
+    Sexo: Masculino, femenino
+    Estado: [Adoptable, Acogible, Sponsoreable, Situacion especial(solo historia)]
+    Nivel de actividad: Alto, medio, bajo
+
+
+Ficha Mascota:
+    Info mascota
+        botones compartir, like.
+    Info protectora
+        Menaje a protectora
+        Llammar a protectora
+    Formulario adopción
+    Sponsor/donación
+    Video/info rescate
+
+    Pasos adopción
+
+    Recursos de adopción ej: alimentación, primeros 30 dias, adaptación
+
+    Otros animales en adopción en la misma protectora
+    Otros animales en general
+
+    EXTRA: Tener en cuenta casos especiales/dificiles, solo sponsor.
