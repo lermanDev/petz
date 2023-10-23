@@ -7,5 +7,5 @@ from .forms import AdopterRegistrationForm
 class AdopterCreateView(CreateView):
     model = Adopter
     form_class = AdopterRegistrationForm
-    template_name = "adopter_form.html"
+    template_name = "adopter/form_register.html"
     success_url = reverse_lazy("register")

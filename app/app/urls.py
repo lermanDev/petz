@@ -10,7 +10,7 @@ from adopter.view import AdopterCreateView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("registro/", AdopterCreateView.as_view(), name="registro"),
+    path("register/", AdopterCreateView.as_view(), name="register"),
 ]
 
 if settings.DEBUG:

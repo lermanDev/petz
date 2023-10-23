@@ -10,19 +10,21 @@ class AdopterRegistrationForm(forms.ModelForm):
         model = Adopter
         fields = [
             "username",
-            "full_name",
-            "phone_number",
-            "preferred_pet_size",
-            "preferred_species",
-            "address_line1",
-            "address_line2",
-            "city",
-            "state",
-            "zip_code",
-            "country",
             "email",
             "password",
         ]
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for field in self.fields:
+            self.fields[field].widget.attrs.update(
+                {
+                    "class": (
+                        "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    )
+                }
+            )
 
     def clean_password2(self):
         # Check that the two password entries match
