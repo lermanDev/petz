@@ -1,5 +1,5 @@
 from django import forms
-from .models import Adoption
+from .models import AdoptionRequest
 
 
 class AdoptionForm(forms.ModelForm):
@@ -15,3 +15,14 @@ class AdoptionForm(forms.ModelForm):
             "entry_date",
             "description",
         ]
+
+
+class AdoptionRequestForm(forms.ModelForm):
+    class Meta:
+        model = AdoptionRequest
+        fields = ["pet", "message"]
+
+        widgets = {
+            "pet": forms.Select(),
+            "message": forms.Textarea(attrs={"rows": 4}),
+        }

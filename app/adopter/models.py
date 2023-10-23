@@ -32,11 +32,6 @@ class Adopter(AbstractUser):
     country = models.CharField(
         max_length=50, blank=True, null=True, verbose_name="Country"
     )
-
-    # Adoption history and preferences
-    adoption_history = models.ManyToManyField(
-        Pet, blank=True, related_name="adopted_by", verbose_name="Adoption History"
-    )
     notes = models.TextField(
         blank=True, null=True, verbose_name="Adoption Notes or Preferences"
     )

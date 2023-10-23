@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     "pet",
     "shelter",
     "adoption",
+    "blog",
     "theme",
     "tailwind",
 ]
