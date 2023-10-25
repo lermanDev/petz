@@ -12,9 +12,11 @@ class Adopter(AbstractUser):
     )
 
     # Preferences for adoptions
-    preferred_pet_size = models.ForeignKey(Size, on_delete=models.PROTECT)
+    preferred_pet_size = models.ForeignKey(
+        Size, blank=True, null=True, on_delete=models.PROTECT
+    )
     preferred_species = models.ManyToManyField(
-        Specie, blank=True, verbose_name="Preferred Species"
+        Specie, blank=True, null=True, verbose_name="Preferred Species"
     )
 
     # Address related fields
