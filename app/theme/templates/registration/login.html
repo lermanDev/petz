@@ -1,11 +1,20 @@
 {% extends override_base_template|default:"registration/partials/base.html" %}
 
 {% block page_content %}
+{% if logged or request.user.is_authenticated %}
+<div class="flex flex-col items-center justify-center">
+  <h1 class="text-xl mb-4 font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-gray-100">
+    ¡Welcome {{ request.user.username }}!
+  </h1>
+  <p class="text-sm my-4 font-light text-gray-500 dark:text-gray-400">You can <a href="{% url 'logout' %}" class="font-medium text-cyan-600 hover:underline dark:text-cyan-500">log out</a> or see our<a href="{% url 'login' %}" class="font-medium text-cyan-600 hover:underline dark:text-cyan-500"> available pets</a></p>
+</div>
+{% else %}
 <div id="form_content">
   <h1 class="text-xl mb-4 font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-gray-100">
     Log in
   </h1>
-  <form method="post" class="space-y-2 md:space-y-2 dark:text-gray-300" hx-post="{% url 'login' %}" hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}' hx-target="#form_content" hx-swap="outerHTML">
+  <form method="post" class="space-y-2 md:space-y-2 dark:text-gray-300">
+    {% csrf_token %}
     {{ form.as_p }}
     <button type="submit" class="w-full text-gray-100 bg-cyan-600 hover:bg-cyan-700 focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800">Log in</button>
   </form>
@@ -13,4 +22,6 @@
     Don't have alredy an account? <a href="{% url 'register' %}" class="font-medium text-cyan-600 hover:underline dark:text-cyan-500">Register here</a>
   </p>
 </div>
+{% endif %}
+
 {% endblock %}
