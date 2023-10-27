@@ -176,6 +176,20 @@ files = [
 Django = ">=2.2"
 
 [[package]]
+name = "django-htmx"
+version = "1.17.0"
+description = "Extensions for using Django with htmx."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "django_htmx-1.17.0-py3-none-any.whl", hash = "sha256:070a37092b88a42cd7af26c1b65f63c4529bae276710fd16137dc934938b44f2"},
+    {file = "django_htmx-1.17.0.tar.gz", hash = "sha256:2ef0d19db41c6152881e782673cd2cd1755a7fd6784f8b4f2279fb18dc03d2c2"},
+]
+
+[package.dependencies]
+Django = ">=3.2"
+
+[[package]]
 name = "django-js-asset"
 version = "2.1.0"
 description = "script tag with additional attributes for django.forms.Media"
@@ -820,4 +834,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9,<3.13"
-content-hash = "caa65e24db33ba3b7a4011822691d3c44fe965041fe2c623291e6a36ea431a60"
+content-hash = "9423830461bd21ba35a3d96cb301b44272980fdd03ca9fe7e5f1491b8fed9217"

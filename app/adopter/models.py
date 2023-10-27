@@ -5,6 +5,8 @@ from pet.models import Specie, Size, Pet
 
 
 class Adopter(AbstractUser):
+    email = models.EmailField(unique=True)
+
     # Profile Info
     full_name = models.CharField(max_length=255, verbose_name="Full Name")
     phone_number = models.CharField(

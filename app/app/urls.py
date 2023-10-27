@@ -5,12 +5,14 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from django.urls import path
-from adopter.view import AdopterCreateView
+from adopter.view import AdopterCreateView, AdopterLoginView
 
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("register/", AdopterCreateView.as_view(), name="register"),
+    path("login/", AdopterLoginView.as_view(), name="login"),
+    # path("adopter/", include("django.contrib.auth.urls")),
 ]
 
 if settings.DEBUG:
