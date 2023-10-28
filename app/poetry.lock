@@ -176,6 +176,20 @@ files = [
 Django = ">=2.2"
 
 [[package]]
+name = "django-filter"
+version = "23.3"
+description = "Django-filter is a reusable Django application for allowing users to filter querysets dynamically."
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "django-filter-23.3.tar.gz", hash = "sha256:015fe155582e1805b40629344e4a6cf3cc40450827d294d040b4b8c1749a9fa6"},
+    {file = "django_filter-23.3-py3-none-any.whl", hash = "sha256:65bc5d1d8f4fff3aaf74cb5da537b6620e9214fb4b3180f6c560776b1b6dccd0"},
+]
+
+[package.dependencies]
+Django = ">=3.2"
+
+[[package]]
 name = "django-htmx"
 version = "1.17.0"
 description = "Extensions for using Django with htmx."
@@ -834,4 +848,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.9,<3.13"
-content-hash = "9423830461bd21ba35a3d96cb301b44272980fdd03ca9fe7e5f1491b8fed9217"
+content-hash = "26d204f0bf3a3e84491eb9345908b01bd7d4189cb0efed6fa208b7a0efdeaf80"

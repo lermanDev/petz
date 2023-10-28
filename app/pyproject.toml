@@ -24,6 +24,7 @@ django-mptt = "^0.15.0"
 beautifulsoup4 = "^4.12.2"
 pillow = "^10.1.0"
 django-htmx = "^1.17.0"
+django-filter = "^23.3"
 
 
 [build-system]
