@@ -144,3 +144,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 AUTH_USER_MODEL = "adopter.Adopter"
+
+FILTERS_EMPTY_CHOICE_LABEL = "All"

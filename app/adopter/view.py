@@ -14,60 +14,25 @@ class AdopterCreateView(CreateView):
 
     def post(self, request):
         form = AdopterRegistrationForm(request.POST)
-        base_template = (
-            "partials/empty_base.html"
-            if request.htmx
-            else "registration/partials/base.html"
-        )
+        context = {"form": form}
+        template_name = "registration/register.html"
+
+        if request.htmx:
+            template_name = "registration/partials/registration_form.html"
+
         if form.is_valid():
             form.save()
-            return render(
-                request,
-                "registration/register.html",
-                {
-                    "form": form,
-                    "registered": True,
-                    "override_base_template": base_template,
-                },
-            )
+            if request.htmx:
+                template_name = "registration/partials/registration_success.html"
+            context["registered"] = True
 
         return render(
             request,
-            "registration/register.html",
-            {"form": form, "override_base_template": base_template},
+            template_name,
+            context,
         )
 
 
 class AdopterLoginView(LoginView):
     form_class = UserLoginForm
     template_name = "registration/login.html"
-
-    # def post(self, request):
-    #     form = UserLoginForm(request, request.POST)
-    #     base_template = (
-    #         "partials/empty_base.html"
-    #         if request.htmx
-    #         else "registration/partials/base.html"
-    #     )
-    #     if form.is_valid():
-    #         user = authenticate(
-    #             username=form.cleaned_data["username"],
-    #             password=form.cleaned_data["password"],
-    #         )
-    #         if user is not None:
-    #             login(request, user)
-    #             return render(
-    #                 request,
-    #                 "registration/login.html",
-    #                 {
-    #                     "form": form,
-    #                     "override_base_template": base_template,
-    #                     "logged": True,
-    #                 },
-    #             )
-
-    #     return render(
-    #         request,
-    #         "registration/login.html",
-    #         {"form": form, "override_base_template": base_template},
-    #     )

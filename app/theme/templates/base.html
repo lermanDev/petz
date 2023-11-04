@@ -7,14 +7,16 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 		{% tailwind_css %}
-
-		<script src="https://unpkg.com/htmx.org@1.6.1"></script>
+		<script src="https://unpkg.com/htmx.org@1.9.6/dist/htmx.min.js"></script>
+		<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 	</head>
 
-	<body class="bg-white">
+	<body  class="bg-white dark:bg-gray-900">
         {% include "partials/header.html"%}
+		<main>
         {% block content %}
         {% endblock %}
+		</main>
         {% include "partials/footer.html"%}
 	</body>
 </html>
