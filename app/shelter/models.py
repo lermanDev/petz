@@ -14,7 +14,10 @@ class Shelter(models.Model):
     website = models.URLField(null=True, blank=True, verbose_name="Website")
     description = models.TextField(null=True, blank=True, verbose_name="Description")
     image = models.ImageField(
-        upload_to="shelters/", null=True, blank=True, verbose_name="Principal Image"
+        upload_to="static/shelters/gallery/",
+        null=True,
+        blank=True,
+        verbose_name="Principal Image",
     )
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Created At")
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Updated At")
