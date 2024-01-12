@@ -32,13 +32,13 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_htmx",
     "django_filters",
+    "tailwind",
     "adopter",
     "pet",
     "shelter",
     "adoption",
     "blog",
     "theme",
-    "tailwind",
 ]
 
 TAILWIND_APP_NAME = "theme"
