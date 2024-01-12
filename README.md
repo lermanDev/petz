@@ -12,8 +12,8 @@ Welcome to the CMS Pet Adoption Project! This project uses Django, htmx, and Tai
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/your_username/cms-pet-adoption.git
-   cd cms-pet-adoption
+   git clone https://github.com/lermandev/pets.git
+   cd pets
 
    ```
 
@@ -49,11 +49,26 @@ Welcome to the CMS Pet Adoption Project! This project uses Django, htmx, and Tai
 4. **Migrate the Database**(after the containers have started):
 
    ```bash
-   docker-compose exec app poetry run python manage.py migrate
+   docker-compose exec web poetry run python manage.py migrate
 
    ```
 
-5. **Access the App**:
+5. **Initialize tailwind only first time**:
+
+   ```bash
+   docker-compose exec web poetry run python manage.py tailwind install
+   docker-compose exec web poetry run python manage.py tailwind build
+   docker-compose exec web poetry run python manage.py collectstatic --noinput
+
+   ```
+
+6. **Create Admin**
+
+   ```bash
+   docker-compose exec web poetry run python manage.py createsuperuser
+   ```
+
+6. **Access the App**:
    - Navigate to http://localhost:8000 in your browser.
 
 ## How to Use
