@@ -43,30 +43,6 @@ This command runs your unit tests, helping you maintain code quality and reliabi
 
 Poetry is a powerful tool that enhances the development experience by simplifying dependency management, ensuring package compatibility, and providing a smooth workflow for Python projects like this one.
 
-# Tailwind
-
-## How it Works
-
-1. Utility-first: Tailwind CSS uses utility classes, which means that instead of writing custom CSS, you use built-in classes in your HTML, making UI development faster and more consistent.
-
-2. Customization: Tailwind's configuration file (tailwind.config.js) lets you define your project's design constraints. You can modify colors, breakpoints, spacing, fonts, and more.
-
-3. PurgeCSS Integration: Tailwind integrates with PurgeCSS, which removes unused styles from your production builds. This keeps your stylesheets lean and fast.
-
-4. Django Integration: With django-tailwind, you can easily incorporate Tailwind CSS into your Django project without wrestling with Webpack or other build tools.
-
-## Tips
-
-1. Customization: Dive deep into tailwind.config.js to tweak the default settings or add custom utilities.
-
-2. Development Mode: Use python manage.py tailwind start to run Tailwind in development mode. This watches for changes and automatically rebuilds your CSS.
-
-3. Production: Before deploying, run python manage.py tailwind build to generate a production-ready, minified CSS file.
-
-## Conclusion
-
-Integrating Tailwind CSS with Django allows for a seamless development experience, leveraging the strengths of both the utility-first design principle and Django's robust backend capabilities. Whether you're designing a small project or a large-scale application, this combination can enhance productivity and maintainability.
-
 # HTMX
 
 ## Introduction

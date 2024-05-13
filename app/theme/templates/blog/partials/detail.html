@@ -1,0 +1,90 @@
+
+<div class="standard-blog-item mb-50">
+    <div class="standard-blog-thumb">
+        <img src="/static/img/blog/blog_thumb01.jpg" alt="">
+    </div>
+    <div class="standard-blog-content blog-details-content">
+        <div class="blog-post-meta">
+            <ul>
+                <li class="tags"><i class="flaticon-bookmark-1"></i>
+                    <a href="#">Siberian Husky , </a>
+                    <a href="#">Breed</a>
+                </li>
+                <li><i class="far fa-user"></i><a href="#">Admin</a></li>
+                <li><i class="far fa-bell"></i> Mar 10, 2021</li>
+            </ul>
+        </div>
+        <h1 class="title">{{ blog.title }}</h1>
+        {{ blog.content|safe }}
+        <div class="blog-line" data-background="/static/img/blog/blog_item_line.png" style="background-image: url(&quot;/static/img/blog/blog_item_line.png&quot;);"></div>
+        <div class="blog-details-bottom">
+            <div class="blog-details-tags">
+                <ul>
+                    <li class="title"><i class="fas fa-tags"></i> Tags :</li>
+                    <li><a href="#">Business</a></li>
+                    <li><a href="#">Work</a></li>
+                    <li><a href="#">Knowledge</a></li>
+                    <li><a href="#">Online</a></li>
+                </ul>
+            </div>
+            <div class="blog-details-social">
+                <ul>
+                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="avatar-post mt-50 mb-50">
+    <div class="post-avatar-img">
+        <img src="/static/img/blog/post_avatar_img.png" alt="img">
+    </div>
+    <div class="post-avatar-content">
+        <h5>Thomas Herlihy</h5>
+        <p>Non-core vaccines are given dependng on the dog's exposure risk. These include vaccines against Bordetella.</p>
+        <div class="blog-details-social">
+            <ul>
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="blog-next-prev">
+    <ul>
+        <li class="blog-prev">
+            <a href="#"><img src="/static/img/icon/left_arrow.png" alt="img">Previous Post</a>
+        </li>
+        <li class="blog-next">
+            <a href="#">Next Post<img src="/static/img/icon/right_arrow.png" alt="img"></a>
+        </li>
+    </ul>
+</div>
+<div class="comment-reply-box">
+    <h5 class="title">Leave a Reply</h5>
+    <form action="#" class="comment-reply-form">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-grp">
+                    <input type="text" placeholder="Author *">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-grp">
+                    <input type="email" placeholder="Your Email *">
+                </div>
+            </div>
+        </div>
+        <div class="form-grp">
+            <textarea name="message" placeholder="Type Comment Here..."></textarea>
+        </div>
+        <div class="form-grp checkbox-grp">
+            <input type="checkbox" id="checkbox">
+            <label for="checkbox">Don’t show your email address</label>
+        </div>
+        <button type="submit" class="btn">Submit now</button>
+    </form>
+</div>

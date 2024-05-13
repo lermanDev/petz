@@ -1,0 +1,24 @@
+{% for blog in blog_list %}
+<div class="standard-blog-item">
+    <div class="standard-blog-thumb">
+        <a href="{% url 'blog_detail' blog.slug %}"><img src="/static/img/blog/blog_thumb01.jpg" alt=""></a>
+    </div>
+    <div class="standard-blog-content">
+        <div class="blog-post-meta">
+            <ul>
+                <li class="tags"><i class="flaticon-bookmark-1"></i>
+                    <a href="#">Siberian Husky , </a>
+                    <a href="#">Breed</a>
+                </li>
+                <li><i class="far fa-user"></i><a href="#">{{ blog.author.first_name }} {{ blog.author.last_name }}</a></li>
+                <li><i class="far fa-bell"></i> {{ blog.created_at }}</li>
+            </ul>
+        </div>
+        <h2 class="title"><a href="{% url 'blog_detail' blog.slug %}">{{ blog.title }}</a></h2>
+        <p>{{ blog.get_short_description }}</p>
+        <a href="{% url 'blog_detail' blog.slug %}" class="read-more">Read More <img src="img/icon/pawprint.png" alt=""></a>
+    </div>
+</div>
+{% endfor %}
+
+{% include "partials/pagination.html" with page_obj=blog_list %}

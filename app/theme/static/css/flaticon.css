@@ -1,0 +1,74 @@
+@font-face {
+    font-family: "flaticon";
+    src: url("../fonts/flaticon.ttf?bd3227b7135b7b35971cfd9419559b83") format("truetype"),
+url("../fonts/flaticon.woff?bd3227b7135b7b35971cfd9419559b83") format("woff"),
+url("../fonts/flaticon.woff2?bd3227b7135b7b35971cfd9419559b83") format("woff2"),
+url("../fonts/flaticon.eot?bd3227b7135b7b35971cfd9419559b83#iefix") format("embedded-opentype"),
+url("../fonts/flaticon.svg?bd3227b7135b7b35971cfd9419559b83#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.flaticon-shopping-bag:before {
+    content: "\f101";
+}
+.flaticon-magnifiying-glass:before {
+    content: "\f102";
+}
+.flaticon-search:before {
+    content: "\f103";
+}
+.flaticon-location:before {
+    content: "\f104";
+}
+.flaticon-dog:before {
+    content: "\f105";
+}
+.flaticon-happy:before {
+    content: "\f106";
+}
+.flaticon-dove:before {
+    content: "\f107";
+}
+.flaticon-husky:before {
+    content: "\f108";
+}
+.flaticon-tick:before {
+    content: "\f109";
+}
+.flaticon-done:before {
+    content: "\f10a";
+}
+.flaticon-play-button-arrowhead:before {
+    content: "\f10b";
+}
+.flaticon-pause:before {
+    content: "\f10c";
+}
+.flaticon-quotation-marks:before {
+    content: "\f10d";
+}
+.flaticon-bookmark:before {
+    content: "\f10e";
+}
+.flaticon-bookmark-1:before {
+    content: "\f10f";
+}
+.flaticon-sex:before {
+    content: "\f110";
+}
+.flaticon-plus-18-movie:before {
+    content: "\f111";
+}
+.flaticon-color-palette:before {
+    content: "\f112";
+}

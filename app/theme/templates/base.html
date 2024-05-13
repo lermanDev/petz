@@ -1,22 +1,75 @@
-{% load static tailwind_tags %}
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-    	<title>Django Tailwind</title>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		{% tailwind_css %}
-		<script src="https://unpkg.com/htmx.org@1.9.6/dist/htmx.min.js"></script>
-		<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-	</head>
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Petco - Pet Breeder & Adoption HTML Template</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<body  class="bg-white dark:bg-gray-900">
+		<link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+		<!-- CSS here -->
+        <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/css/animate.min.css">
+        <link rel="stylesheet" href="/static/css/magnific-popup.css">
+        <link rel="stylesheet" href="/static/css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="/static/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="/static/css/nice-select.css">
+        <link rel="stylesheet" href="/static/css/flaticon.css">
+        <link rel="stylesheet" href="/static/css/odometer.css">
+        <link rel="stylesheet" href="/static/css/jquery-ui.css">
+        <link rel="stylesheet" href="/static/css/slick.css">
+        <link rel="stylesheet" href="/static/css/default.css">
+        <link rel="stylesheet" href="/static/css/style.css">
+        <link rel="stylesheet" href="/static/css/responsive.css">
+
+		<script src="https://unpkg.com/htmx.org@1.9.6/dist/htmx.min.js"></script>
+    </head>
+    <body>
+
+		<!-- Scroll-top -->
+        <button class="scroll-top scroll-to-target" data-target="html">
+            <i class="fas fa-angle-up"></i>
+        </button>
+        <!-- Scroll-top-end-->
+
+        <!-- header-area -->
         {% include "partials/header.html"%}
-		<main>
-        {% block content %}
-        {% endblock %}
+        <!-- header-area-end -->
+
+
+        <!-- main-area -->
+        <main>
+		{% block content %}
+		{% endblock %}
 		</main>
+        <!-- main-area-end -->
+
+
+        <!-- footer-start -->
         {% include "partials/footer.html"%}
-	</body>
+        <!-- footer-end -->
+
+
+
+
+
+		<!-- JS here -->
+        <script src="/static/js/vendor/jquery-3.6.0.min.js"></script>
+        <script src="/static/js/bootstrap.min.js"></script>
+        <script src="/static/js/isotope.pkgd.min.js"></script>
+        <script src="/static/js/imagesloaded.pkgd.min.js"></script>
+        <script src="/static/js/jquery.magnific-popup.min.js"></script>
+        <script src="/static/js/owl.carousel.min.js"></script>
+        <script src="/static/js/jquery.odometer.min.js"></script>
+        <script src="/static/js/jquery.nice-select.min.js"></script>
+        <script src="/static/js/jquery-ui.min.js"></script>
+        <script src="/static/js/jquery.appear.js"></script>
+        <script src="/static/js/slick.min.js"></script>
+        <script src="/static/js/wow.min.js"></script>
+        <script src="/static/js/plugins.js"></script>
+        <script src="/static/js/main.js"></script>
+    </body>
 </html>

@@ -1,0 +1,15 @@
+<h4 class="">Filters</h4>
+<form method="get" action="{% url 'pets' %}" 
+    {% if internal is not False %}
+    hx-get="{% url 'pets' %}" hx-target="#pagination-content" hx-swap="innerHTML show:.adoption-shop-area:top"
+    {% endif %}
+>
+    <div id="form_content" class="filter_form">
+        {{ filter.form.as_div }}
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+
+    {% if internal is not False %}
+    <a id="filter_reset" href="{% url 'pets' %}">Reset</a>
+    {% endif %}
+</form>

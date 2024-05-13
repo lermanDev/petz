@@ -1,26 +1,42 @@
 {% extends "base.html" %}
 
 {% block content %}
-<section>
-    <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-        <div class="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
-            <h2 class="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Pets on adoption</h2>
-            <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400"></p>
-        </div> 
-        <div class="sm:flex sm:flex-row">
-            <div class="w-full sm:basis-1/5">
-                <div >
-                    <h3 class="text-l lg:text-xl tracking-tight text-gray-700 dark:text-gray-300">Filters</h3>
-                </div>
-                <form method="get" hx-get="{% url 'pets' %}" hx-target="#pet_list" hx-swap="innerHTML show:#pet_list:top">
-                    <div id="form_content" class="space-y-4">
-                        {{ filter.form.as_div }}
-                    </div>
-                    <button type="submit" class="w-full mt-4 text-gray-100 bg-cyan-600 hover:bg-cyan-700 focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800">Filter</button>
-                </form>
+<section class="adoption-shop-area">
+    <div class="row justify-content-center">
+        <div class="col-xl-7 col-lg-9">
+            <div class="section-title text-center mb-65">
+                <div class="section-icon"><img src="/static/img/icon/pawprint.png" alt=""></div>
+                <h5 class="sub-title">Meet the animals</h5>
+                <h2 class="title">
+                    {% if specie_filtered %}
+                        {{ specie_filtered.name }} en adopción
+                    {% else %}
+                        Encuentra tu mejor amigo
+                    {% endif %}
+                </h2>
+                <p>The best overall dog DNA test is Embark Breed &amp; Health Kit (view at Chewy), which provides you with a
+                    breed brwn and information Most dogs</p>
             </div>
-            {% include "pet/partials/list.html" with pet_list=pet_list %}
-        </div>  
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3 breeder-sidebar widget breeder-widget">
+                <aside>
+                    {% include "pet/partials/pet_filter.html"%}
+                </aside>
+            </div>
+            <div id="pagination-content" class="col-sm-9">
+                {% include "pet/partials/list.html" with pet_list=pet_list %}
+            </div>
+        </div>
     </div>
 </section>
+{% if specie_filtered %}
+<style>
+    div:has(> #id_specie){
+        display: none;
+    }
+</style>
+{% endif %}
 {% endblock %}

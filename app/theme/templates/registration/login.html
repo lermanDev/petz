@@ -1,6 +1,6 @@
-{% extends override_base_template|default:"registration/partials/base.html" %}
+{% extends "base.html" %}
 
-{% block page_content %}
+{% block content %}
 {% if logged or request.user.is_authenticated %}
 <div class="flex flex-col items-center justify-center">
   <h1 class="text-xl mb-4 font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-gray-100">

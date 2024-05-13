@@ -1,6 +1,6 @@
 # CMS Pet Adoption Project
 
-Welcome to the CMS Pet Adoption Project! This project uses Django, htmx, and TailwindCSS to create a content management system (CMS) focused on pet adoption. It's designed with Docker for easy local development and uses PostgreSQL as its database.
+Welcome to the CMS Pet Adoption Project! This project uses Django and htmx to create a content management system (CMS) focused on pet adoption. It's designed with Docker for easy local development and uses PostgreSQL as its database.
 
 ## Pre-requisites
 
@@ -29,12 +29,12 @@ Welcome to the CMS Pet Adoption Project! This project uses Django, htmx, and Tai
    POSTGRES_PASSWORD=mypassword
 
    DEBUG=1
-   SQL_ENGINE=django.db.backends.postgresql
-   SQL_DATABASE=${POSTGRES_DB}
-   SQL_USER=${POSTGRES_USER}
-   SQL_PASSWORD=${POSTGRES_PASSWORD}
-   SQL_HOST=${DB_SERVICE_NAME}
-   SQL_PORT=5432
+   DJANGO_SQL_ENGINE=django.db.backends.postgresql
+   DJANGO_SQL_DATABASE=${POSTGRES_DB}
+   DJANGO_SQL_USER=${POSTGRES_USER}
+   DJANGO_SQL_PASSWORD=${POSTGRES_PASSWORD}
+   DJANGO_SQL_HOST=${DB_SERVICE_NAME}
+   DJANGO_SQL_PORT=5432
    SECRET_KEY="django-insecure-n5(x*k+%5+g9gu@71#@)o=s3yrxmp%r^vc8wd+8eh5@2emz_5-"
 
    ```
@@ -53,16 +53,7 @@ Welcome to the CMS Pet Adoption Project! This project uses Django, htmx, and Tai
 
    ```
 
-5. **Initialize tailwind only first time**:
-
-   ```bash
-   docker-compose exec web poetry run python manage.py tailwind install
-   docker-compose exec web poetry run python manage.py tailwind build
-   docker-compose exec web poetry run python manage.py collectstatic --noinput
-
-   ```
-
-6. **Create Admin**
+5. **Create Admin**
 
    ```bash
    docker-compose exec web poetry run python manage.py createsuperuser
@@ -75,7 +66,7 @@ Welcome to the CMS Pet Adoption Project! This project uses Django, htmx, and Tai
 
 - The admin panel can be accessed at http://localhost:8000/admin.
 - Add, update, or remove pet adoption listings through the CMS interface.
-- Enjoy the ease of use, thanks to htmx and TailwindCSS.
+- Enjoy the ease of use, thanks to htmx.
 
 ## Contributing
 

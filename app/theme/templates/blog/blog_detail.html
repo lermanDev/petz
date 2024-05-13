@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- blog-detail-area--->
+<section class="standard-blog-area">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                {% include "blog/partials/detail.html"%}
+            </div>
+            
+            {% include "blog/partials/sidebar.html"%}
+        </div>
+    </div>
+</section>
+<!-- blog-detail-area-end -->
+{% endblock %}

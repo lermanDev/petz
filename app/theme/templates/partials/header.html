@@ -1,53 +1,89 @@
 <header>
-    <nav class="py-2 md:py-4">
-      <div class="container px-4 mx-auto md:flex md:items-center">
-        <div class="flex justify-between items-center">
-          <a href="#" class="font-bold text-xl text-cyan-600">PETS</a>
-          <button class="border border-solid border-gray-600 px-3 py-1 rounded text-gray-600 dark:text-gray-100  opacity-50 hover:opacity-75 md:hidden" id="navbar-toggle">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-          </button>
-        </div>
-        <div class="hidden text-center md:flex flex-col md:flex-row md:ml-auto mt-3 md:mt-0" id="navbar-collapse">
-          <!--a href="#" class="p-2 lg:px-4 md:mx-2 text-white rounded bg-cyan-600">Adopt</a-->
-          <div class="relative group md:flex flex-col md:flex-row ">
-            <a href="{% url 'pets' %}" class="p-2 lg:px-4 md:mx-2 text-gray-600 dark:text-gray-100  rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">Adopt</a>
-            <div class="absolute top-8 left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 origin-top-right z-10 hidden group-hover:block">
-              <div class="py-1">
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Dropdown Link 1</a>
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Dropdown Link 2</a>
+  <div id="sticky-header" class="menu-area">
+      <div class="container custom-container">
+          <div class="row">
+              <div class="col-12">
+                  <div class="mobile-nav-toggler"><i class="fas fa-bars"></i></div>
+                  <div class="menu-wrap">
+                      <nav class="menu-nav show">
+                          <div class="logo"><a href="index.html"><img src="/static/img/logo/petz_logo.png" alt="" style="max-width: 150px;"></a></div>
+                          <div class="navbar-wrap main-menu d-none d-lg-flex">
+                              <ul class="navigation">
+                                  <li class="active"><a href="/">Inicio</a></li>
+                                  <li class="menu-item-has-children"><a href="{% url 'pets' %}">Adopta</a>
+                                      <ul class="submenu">
+                                          <li><a href="{% url 'pets' %}">Perros</a></li>
+                                          <li><a href="{% url 'pets' %}">Gatos</a></li>
+                                          <li><a href="{% url 'pets' %}">Aves</a></li>
+                                          <li><a href="{% url 'pets' %}">Roedores</a></li>
+                                          <li><a href="{% url 'pets' %}">Reptiles</a></li>
+                                          <li><a href="{% url 'pets' %}">Peces</a></li>
+                                          <li><a href="{% url 'pets' %}">Otros animales</a></li>
+                                      </ul>
+                                  </li>
+                                  <li class="menu-item-has-children"><a href="{% url 'blog' %}">Colabora</a>
+                                      <ul class="submenu">
+                                          <li><a href="{% url 'blog' %}">Acoge</a></li>
+                                          <li><a href="{% url 'blog' %}">Dona</a></li>
+                                          <li><a href="{% url 'blog' %}">Voluntariado</a></li>
+                                      </ul>
+                                  </li>
+                                  <li><a href="{% url 'blog' %}">Historias</a></li>
+                                  <li><a href="{% url 'blog' %}">Protectoras</a></li>
+                                  <li class="menu-item-has-children"><a href="{% url 'blog' %}">Recursos</a>
+                                      <ul class="submenu">
+                                          <li><a href="{% url 'blog' %}">Primeros pasos</a></li>
+                                          <li><a href="{% url 'blog' %}">Alimentación</a></li>
+                                          <li><a href="{% url 'blog' %}">Entrenamiento</a></li>
+                                          <li><a href="{% url 'blog' %}">Ejercicio</a></li>
+                                          <li><a href="{% url 'blog' %}">Cuidados</a></li>
+                                      </ul>
+                                  </li>
+                                  <li class="menu-item-has-children"><a href="{% url 'blog' %}">Blog</a>
+                                      <ul class="submenu">
+                                          <li><a href="{% url 'blog' %}">Últimas noticias</a></li>
+                                          <li><a href="{% url 'blog' %}">Eventos</a></li>
+                                      </ul>
+                                  </li>
+                              </ul>
+                          </div>
+                          <div class="header-action d-none d-md-block">
+                            <ul>
+                                {% if request.user.is_authenticated %}
+                                <li class="header-btn"><a href="{% url 'logout' %}" class="btn">Log out <img src="/static/img/icon/w_pawprint.png" alt=""></a></li>
+                                {% else %}
+                                <li class="header-btn"><a href="{% url 'login' %}" class="btn">Log in <img src="/static/img/icon/w_pawprint.png" alt=""></a></li>
+                                {% endif %}
+                                
+                            </ul>
+                        </div>
+                      </nav>
+                  </div>
+                  <!-- Mobile Menu  -->
+                  <div class="mobile-menu">
+                      <nav class="menu-box">
+                          <div class="close-btn"><i class="fas fa-times"></i></div>
+                          <div class="nav-logo"><a href="index.html"><img src="/static/img/logo/logo.png" alt="" title=""></a>
+                          </div>
+                          <div class="menu-outer">
+                              <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+                          </div>
+                          <div class="social-links">
+                              <ul class="clearfix">
+                                  <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                                  <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
+                                  <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
+                                  <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                                  <li><a href="#"><span class="fab fa-youtube"></span></a></li>
+                              </ul>
+                          </div>
+                      </nav>
+                  </div>
+                  <div class="menu-backdrop"></div>
+                  <!-- End Mobile Menu -->
               </div>
-            </div>
           </div>
-          <a href="#" class="p-2 lg:px-4 md:mx-2 text-gray-600 dark:text-gray-100  rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">Help</a>
-          <a href="#" class="p-2 lg:px-4 md:mx-2 text-gray-600 dark:text-gray-100  rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">Shelters</a>
-          <a href="{% url 'blog' %}" class="p-2 lg:px-4 md:mx-2 text-gray-600 dark:text-gray-100  rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">Blog</a>
-          <a href="#" class="p-2 lg:px-4 md:mx-2 text-gray-600 dark:text-gray-100  rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300">About us</a>
-          {% if request.user.is_authenticated %}
-          <div class="relative group md:flex flex-col md:flex-row ">
-            <a href="#" class="p-2 lg:px-4 md:mx-2 text-cyan-600 text-center border border-transparent rounded hover:bg-cyan-100 hover:text-cyan-700 transition-colors duration-300">{{ request.user.username }}!</a>
-            <div class="absolute top-8 left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 origin-top-right z-10 hidden group-hover:block">
-              <div class="py-1">
-                  <a href="{% url 'logout' %}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Log out</a>
-              </div>
-            </div>
-          </div>
-          {% else %}
-            <a href="{% url 'login' %}" class="p-2 lg:px-4 md:mx-2 text-cyan-600 text-center border border-transparent rounded hover:bg-cyan-100 hover:text-cyan-700 transition-colors duration-300">Login</a>
-            <a href="{% url 'register' %}" class="p-2 lg:px-4 md:mx-2 text-cyan-600 text-center border border-solid border-cyan-600 rounded hover:bg-cyan-600 hover:text-white transition-colors duration-300 mt-1 md:mt-0 md:ml-1">Signup</a>
-          {% endif %}
-          
-        </div>
       </div>
-    </nav>
+      <div class="header-shape" data-background="/static/img/bg/header_shape.png"></div>
+  </div>
 </header>
-<script>
-    let toggleBtn = document.querySelector("#navbar-toggle");
-    let collapse = document.querySelector("#navbar-collapse");
-
-    toggleBtn.onclick = () => {
-    collapse.classList.toggle("hidden");
-    collapse.classList.toggle("flex");
-    };
-</script>

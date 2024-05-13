@@ -1,0 +1,920 @@
+/* Extra large devices (large desktops, 1800px and up) */
+@media (max-width: 1800px) {
+.header-top-area {
+    max-width: 1550px;
+}
+.slider-active:hover .slick-arrow.slick-next {
+    left: auto;
+    right: 10px;
+}
+.slider-active:hover .slick-arrow.slick-prev {
+    left: 10px;
+}
+.adopt-active .slick-arrow {
+    left: 0;
+    opacity: 0;
+}
+.adopt-active .slick-arrow.slick-next {
+    left: auto;
+    right: 0;
+}
+.adopt-active:hover .slick-arrow {
+    opacity: 1;
+}
+
+}
+
+
+/* Extra large devices (large desktops, 1800px and up) */
+@media (max-width: 1500px) {
+.custom-container {
+    max-width: 1230px;
+}
+.slider-bg {
+    min-height: 645px;
+}
+.slider-title {
+    margin-bottom: 20px;
+}
+.slider-desc {
+    margin-bottom: 40px;
+}
+.slider-content .title {
+    font-size: 57px;
+	line-height: 1.2;
+}
+.slider-shape {
+    left: 44%;
+    top: 16%;
+}
+.find-wrap .location {
+    padding: 64px 0px 64px 40px;
+}
+.find-wrap .find-category ul {
+    margin-left: 55px;
+}
+.find-wrap .find-category ul li {
+    padding: 40px 29px;
+}
+.find-wrap .find-category ul li a i {
+    margin-right: 10px;
+}
+.find-wrap .other-find {
+    padding: 64px 30px 64px 30px;
+}
+.other-find .dropdown > button::after {
+    margin-left: 15px;
+}
+.newsletter-shape {
+	display: none;
+}
+.footer-shape {
+    left: 0%;
+}
+.footer-shape.shape-two {
+    left: auto;
+    right: 0;
+    bottom: -10px;
+}
+.adopt-content {
+    padding: 0 0;
+}
+.adoption-area-two .custom-container {
+    max-width: 1230px;
+}
+.breadcrumb-bg {
+    padding: 115px 0;
+}
+.breed-services-active .owl-nav button.owl-prev {
+    left: -5%;
+}
+
+
+}
+
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (max-width: 1199.98px) {
+.custom-container {
+    max-width: 960px;
+}
+.header-action > ul li.header-btn {
+	display: none;
+}
+.header-shop-cart .minicart {
+	right: 0;
+}
+.navbar-wrap ul {
+    margin-left: 40px;
+}
+.navbar-wrap ul li a {
+    padding: 40px 18px;
+}
+.slider-content .title {
+    font-size: 62px;
+    line-height: 1.1;
+}
+.find-wrap .location {
+    padding: 45px 25px 45px 30px;
+	width: 23%;
+    flex: 0 0 23%;
+}
+.find-wrap .find-category ul {
+    margin-left: 0;
+}
+.find-wrap .find-category ul::before {
+	display: none;
+}
+.find-wrap .find-category ul li {
+    padding: 35px 20px;
+    width: 33.3333%;
+    flex: 0 0 33.3333%;
+    justify-content: center;
+}
+.find-wrap .find-category ul li a {
+    line-height: 22px;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.find-wrap .find-category ul li a i {
+    margin-right: 0;
+    margin-bottom: 10px;
+}
+.find-wrap .other-find {
+    padding: 40px 20px 40px 25px;
+    width: 22%;
+    flex: 0 0 22%;
+}
+.find-wrap .find-category {
+    width: 55%;
+    flex: 0 0 55%;
+}
+.counter-item {
+    padding: 40px 25px;
+}
+.counter-item .count {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+.counter-item p {
+    line-height: 1.4;
+}
+.adoption-img {
+    margin-left: 0;
+    margin-top: 0;
+}
+.adoption-area {
+    padding: 110px 0 0;
+}
+.adoption-content {
+    padding-bottom: 0;
+}
+.breed-services-info {
+    padding: 40px 30px;
+}
+.breed-services-info .title {
+    font-size: 30px;
+}
+.breed-services-info p {
+    font-size: 14px;
+    line-height: 26px;
+}
+.faq-img-wrap .main-img {
+    bottom: 21px;
+}
+.faq-shape {
+	display: none;
+}
+.faq-img-wrap {
+    margin-right: 10px;
+}
+.faq-img-wrap .popup-video {
+    width: 75px;
+    height: 75px;
+}
+.section-title .title {
+    font-size: 40px;
+}
+.adoption-shop-content {
+    margin: -48px 0 0;
+    padding: 20px 20px 25px;
+}
+.testimonial-active .slick-track .slick-slide:nth-child(2n+2) .testimonial-item {
+    margin-left: 0;
+}
+.testimonial-active .slick-track .slick-slide:nth-child(2n+1) .testimonial-item {
+    margin-right: 0;
+}
+.testimonial-item {
+    padding: 35px 35px 40px 35px;
+}
+.testi-avatar-thumb {
+    width: 85px;
+    flex: 0 0 85px;
+    margin-right: 25px;
+}
+.testimonial-item::before {
+    bottom: 15%;
+    right: 9%;
+    font-size: 40px;
+}
+.blog-post-content .title {
+    font-size: 22px;
+}
+.newsletter-wrap {
+    padding: 60px 55px 60px 55px;
+}
+.newsletter-content {
+    width: 36%;
+    flex: 0 0 36%;
+}
+.newsletter-form {
+    width: 64%;
+    flex: 0 0 64%;
+}
+.newsletter-content .title {
+    font-size: 34px;
+}
+.newsletter-form form {
+    margin-left: 20px;
+}
+.newsletter-form [type=submit] {
+    min-width: 170px;
+}
+.footer-top-area .row .col-2 {
+    -ms-flex: 0 0 22.5%;
+    flex: 0 0 22.5%;
+    max-width: 22.5%;
+}
+.breeder-info-wrap {
+    margin-left: 0;
+}
+.breeder-bg .breed-services-info {
+    padding: 55px 50px;
+}
+.breeder-bg .adoption-content {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.breeder-bg .adoption-content .title br {
+    display: none;
+}
+.breeder-bg .adoption-content p {
+    margin-bottom: 35px;
+}
+.adoption-area-two .custom-container {
+    max-width: 960px;
+}
+.container-inner-wrap {
+    padding: 0 0;
+}
+.contact-info-wrap {
+    margin-left: 30px;
+}
+.inner-breeder-area.breeder-bg .adoption-content {
+    text-align: left;
+}
+.inner-breeder-area .adoption-content p {
+    margin-bottom: 30px;
+}
+.faq-two-bg .faq-wrapper {
+    margin-left: 0;
+}
+.adoption-content .title br {
+    display: none;
+}
+.breeder-gallery-area .adoption-content {
+    padding-right: 45px;
+}
+.breeder-details-content {
+    padding: 35px 30px 40px;
+}
+.sidebar-newsletter {
+    padding: 40px 30px 40px;
+}
+.standard-blog-content > .title {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+.blog-sidebar {
+    margin-left: 0;
+}
+.blog-sidebar .widget {
+    padding: 35px 25px;
+}
+.rc-post-content .title {
+    width: 100%;
+}
+.shop-sidebar {
+    margin-right: 0;
+}
+.shop-cat-list ul li a {
+    padding: 10px 18px;
+}
+.shop-content .title {
+    font-size: 18px;
+}
+.shop-sidebar .widget {
+    margin-bottom: 35px;
+}
+.shop-details-content {
+    margin-left: 10px;
+}
+
+}
+
+
+
+/* Large devices (desktops, 992px and up) */
+@media (max-width: 991.98px) {
+.custom-container {
+    max-width: 720px;
+}
+.adoption-area-two .custom-container {
+    max-width: 720px;
+}
+.menu-area {
+	padding: 25px 0;
+}
+.menu-nav {
+	justify-content: space-between;
+}
+.header-action {
+	margin-right: 40px;
+}
+.header-shop-cart .minicart {
+	top: 51px;
+}
+.menu-outer .navbar-wrap {
+	display: block !important;
+}
+.menu-area .mobile-nav-toggler {
+	display: block;
+}
+.header-top-left ul li:first-child {
+	display: none;
+}
+.find-wrap {
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+.find-wrap .location {
+    padding: 45px 40px 45px 45px;
+    width: 50%;
+    flex: 0 0 50%;
+}
+.find-wrap .find-category {
+    width: 100%;
+    flex: 0 0 100%;
+    order: 2;
+}
+.find-wrap .other-find {
+    padding: 40px 45px 40px 25px;
+    width: 50%;
+    flex: 0 0  50%;
+    text-align: right;
+}
+.adoption-img {
+    margin-bottom: 35px;
+}
+.breed-services-active {
+    margin-bottom: 30px;
+}
+.faq-img-wrap .main-img {
+    bottom: 32px;
+}
+.faq-img-wrap {
+    max-width: 556px;
+    margin: 0 auto 50px;
+}
+.faq-img-wrap .popup-video {
+    width: 93px;
+    height: 93px;
+}
+.testimonial-item {
+    padding: 35px 40px 40px 50px;
+    max-width: 582px;
+    margin: 0 auto !important;
+    justify-content: center;
+}
+.newsletter-wrap {
+	display: block;
+	text-align: center;
+}
+.newsletter-content {
+    width: 100%;
+    flex: 0 0 100%;
+	margin-bottom: 30px;
+}
+.newsletter-form {
+    width: 100%;
+    flex: 0 0 100%;
+}
+.newsletter-content p {
+    justify-content: center;
+}
+.newsletter-form form {
+    margin-left: 0;
+}
+.footer-top-area .row .col-3,
+.footer-top-area .row .col-2 {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+.fw-insta ul li a img {
+    width: 100%;
+}
+.footer-contact {
+    margin: 25px 0 20px;
+}
+.scroll-top {
+    right: 0;
+}
+.adoption-content .title br {
+	display: none;
+}
+.adopt-content {
+    padding: 0 20px;
+}
+.contact-info-wrap {
+    margin-left: 0;
+    margin-bottom: 40px;
+}
+.faq-two-img {
+    display: none;
+}
+.breeder-gallery-active {
+    margin-bottom: 50px;
+}
+.breeder-gallery-item img {
+    width: 100%;
+}
+.breeder-details-content {
+    padding: 45px 43px 60px;
+}
+.breeder-sidebar {
+    margin-top: 100px;
+}
+.breeder-widget {
+    padding: 50px 45px;
+}
+.sidebar-newsletter {
+    padding: 45px 45px 50px;
+}
+.blog-sidebar {
+    margin-top: 110px;
+}
+.blog-sidebar .widget {
+    padding: 40px 30px;
+}
+.rc-post-thumb img {
+    width: 100%;
+}
+.shop-thumb img {
+    width: 100%;
+}
+.shop-content .title {
+    font-size: 20px;
+}
+.shop-sidebar {
+    margin-top: 110px;
+}
+.shop-details-wrap .col-7,
+.shop-details-wrap .col-5 {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+.shop-details-content {
+    margin-left: 0;
+    margin-top: 45px;
+}
+
+}
+
+
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 767.98px) {
+.custom-container {
+    max-width: 100%;
+}
+.adoption-area-two .custom-container {
+    max-width: 100%;
+}
+.transparent-header {
+	top: 0;
+}
+.header-top-left ul {
+    justify-content: center;
+    text-align: center;
+}
+.header-top-social {
+    justify-content: center;
+    margin-top: 10px;
+}
+.header-top-area {
+    padding: 15px 0;
+}
+.slider-content .title {
+    font-size: 36px;
+    line-height: 1.2;
+    letter-spacing: 0;
+}
+.slider-content .title > span {
+    background-image: none;
+    padding: 0;
+    display: inline-flex;
+    line-height: inherit;
+}
+.slider-shape.shape-two {
+	display: none;
+}
+.slider-title {
+    margin-bottom: 20px;
+}
+.slider-bg {
+    background-position: left center;
+}
+.find-wrap .location {
+    padding: 45px 35px 45px 35px;
+    width: 100%;
+    flex: 0 0 100%;
+    justify-content: center;
+}
+.find-wrap .find-category {
+    order: 0;
+}
+.find-wrap .find-category ul li {
+    padding: 35px 20px;
+    width: 100%;
+    flex: 0 0 100%;
+    justify-content: center;
+	border-right: none;
+    border-bottom: 3px solid #e73a2d;
+    min-height: auto;
+}
+.find-wrap .other-find {
+    padding: 40px 45px 40px 45px;
+    width: 100%;
+    flex: 0 0  100%;
+    text-align: center;
+}
+.find-wrap {
+    overflow: visible;
+}
+.find-wrap .find-category ul li a {
+    flex-direction: row;
+}
+.find-wrap .find-category ul li a i {
+    margin-right: 18px;
+    margin-bottom: 0;
+}
+.counter-title .sub-title {
+    font-size: 20px;
+}
+.counter-title .title {
+    font-size: 32px;
+}
+.adoption-content .title {
+    font-size: 32px;
+}
+.breed-services-shape.shape-two {
+    display: none;
+}
+.section-title .title {
+    font-size: 32px;
+}
+.section-title .sub-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.breed-services-info .title {
+    font-size: 32px;
+}
+.faq-img-wrap .main-img {
+    bottom: 18px;
+    left: 20px;
+}
+.faq-img-wrap .popup-video {
+    width: 55px;
+    height: 55px;
+}
+.testimonial-item {
+    padding: 35px 30px 40px 30px;
+    display: block;
+}
+.testi-avatar-thumb {
+    margin-bottom: 15px;
+}
+.newsletter-wrap {
+    padding: 50px 25px 50px 25px;
+}
+.newsletter-form form {
+    display: block;
+}
+.newsletter-form input {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    border-radius: 10px 10px 10px 10px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+.newsletter-form [type=submit] {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    border-radius: 10px 10px 10px 10px;
+}
+.footer-top-area .row .col-3,
+.footer-top-area .row .col-2 {
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+.copyright-text p {
+	padding-left: 0;
+}
+.copyright-text p::before {
+	display: none;
+}
+.copyright-text {
+    text-align: center;
+}
+.footer-shape {
+	display: none;
+}
+.adoption-shop-thumb img,
+.blog-post-thumb img {
+    width: 100%;
+}
+.breeder-bg .breed-services-info {
+    padding: 40px 30px;
+}
+.adopt-content {
+    padding: 0 0;
+}
+.contact-info-wrap {
+    padding: 38px 25px 35px;
+}
+.contact-social {
+    margin-top: 30px;
+}
+.contact-title .sub-title {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+.contact-title .title {
+    font-size: 32px;
+}
+.breeder-gallery-active .slick-dots {
+    right: 20px;
+}
+.breadcrumb-content .title {
+    font-size: 30px;
+}
+.breeder-details-content {
+    padding: 35px 25px 40px;
+}
+.breeder-widget {
+    padding: 40px 25px;
+}
+.sidebar-newsletter {
+    padding: 40px 30px 40px;
+}
+.standard-blog-content > .title {
+    font-size: 24px;
+}
+.blog-sidebar .widget {
+    padding: 35px 25px;
+}
+.blog-details-content blockquote {
+    font-size: 18px;
+    padding: 40px 40px 40px 55px;
+}
+.blog-details-content blockquote::before {
+    left: 30px;
+}
+.avatar-post {
+    display: block;
+    text-align: center;
+    padding: 40px 25px 40px 25px;
+}
+.blog-details-bottom {
+    display: block;
+}
+.blog-details-social ul {
+    margin-top: 10px;
+    justify-content: flex-start;
+}
+.post-avatar-img {
+    margin: 0 auto 20px;
+}
+.post-avatar-content .blog-details-social ul {
+    justify-content: center;
+}
+.blog-details-img [class*="col-"]:first-child img {
+    margin-bottom: 20px;
+}
+.blog-post-meta ul li + li::before {
+    margin: 0 10px;
+}
+.blog-next-prev ul {
+    display: block;
+}
+.blog-next-prev .blog-next {
+    text-align: right;
+}
+.comment-reply-box {
+    padding: 40px 25px 45px;
+}
+.comment-reply-box .title {
+    margin-bottom: 30px;
+}
+.comment-reply-form .checkbox-grp {
+    margin-bottom: 30px;
+}
+.blog-details-img img {
+    width: 100%;
+}
+.blog-details-tags {
+    width: 100%;
+    flex: 0 0 100%;
+}
+.shop-short-by {
+    margin-left: 0;
+}
+.shop-show-list {
+    margin-right: 35px;
+}
+.shop-sidebar .widget {
+    margin-bottom: 40px;
+}
+.shop-pagination {
+    margin-left: 0;
+}
+.shop-details-content > .title {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+.product-desc-wrap .nav-tabs .nav-link::after {
+    display: none;
+}
+.product-desc-img {
+    margin-bottom: 30px;
+}
+.product-desc-review {
+    padding: 20px 25px;
+}
+.product-desc-wrap {
+    padding-top: 70px;
+}
+.product-desc-wrap .nav-tabs .nav-item {
+    margin: 0 45px 0 0;
+}
+.find-wrap .location input {
+    width: auto;
+}
+
+}
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+.custom-container {
+    max-width: 540px;
+}
+.slider-content .title {
+    font-size: 56px;
+    line-height: 1.1;
+}
+.slider-title {
+    margin-bottom: 25px;
+}
+.find-wrap .find-category ul {
+    justify-content: flex-start;
+}
+.find-wrap .find-category ul li {
+    width: 50%;
+    flex: 0 0 50%;
+}
+.find-wrap .find-category ul li:nth-child(odd) {
+	border-right: 3px solid #e73a2d;
+}
+.counter-title .sub-title {
+    font-size: 22px;
+}
+.counter-title .title,
+.section-title .title,
+.adoption-content .title  {
+    font-size: 36px;
+}
+.section-title .sub-title {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+.breed-services-info {
+    padding: 53px 50px;
+}
+.breed-services-info .title {
+    font-size: 40px;
+}
+.faq-img-wrap .main-img {
+    bottom: 32px;
+    left: 36px;
+}
+.faq-img-wrap .popup-video {
+    width: 85px;
+    height: 85px;
+}
+.adoption-shop-content {
+    margin: -48px 24px 0;
+    padding: 25px 25px 30px;
+}
+.testimonial-item {
+    display: flex;
+}
+.blog-post-content .title {
+    font-size: 24px;
+}
+.footer-top-area .row .col-2 {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+.footer-top-area .row .col-3 {
+    -ms-flex: 0 0 60%;
+    flex: 0 0 60%;
+    max-width: 60%;
+}
+.footer-shape.shape-two {
+    bottom: 0;
+	right: 15px;
+    display: block;
+}
+.breeder-bg .breed-services-info {
+    padding: 53px 50px;
+}
+.contact-info-wrap {
+    padding: 38px 55px 45px;
+}
+.contact-title .sub-title {
+    font-size: 32px;
+}
+.contact-title .title {
+    font-size: 38px;
+}
+.breadcrumb-content .title {
+    font-size: 34px;
+}
+.breeder-details-content {
+    padding: 45px 35px 60px;
+}
+.breeder-widget {
+    padding: 40px 35px;
+}
+.sidebar-newsletter {
+    padding: 45px 45px 50px;
+}
+.standard-blog-content > .title {
+    font-size: 28px;
+}
+.blog-sidebar .widget {
+    padding: 40px 30px;
+}
+.avatar-post {
+    padding: 40px 30px;
+}
+.blog-next-prev ul {
+    display: flex;
+}
+.comment-reply-box {
+    padding: 40px 35px 45px;
+}
+.blog-post-meta ul li + li::before {
+    margin: 0 15px;
+}
+.blog-details-content blockquote {
+    padding: 40px 40px 40px 60px;
+}
+.shop-content .title {
+    font-size: 18px;
+}
+.shop-pagination {
+    margin-left: auto;
+    margin-right: auto;
+}
+.product-desc-img img {
+    width: auto;
+}
+.shop-details-content > .title {
+    font-size: 34px;
+}
+.product-desc-wrap .nav-tabs .nav-link::after {
+    display: block;
+}
+
+
+}
+
+

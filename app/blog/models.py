@@ -1,7 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django.utils.text import slugify
-
+from bs4 import BeautifulSoup
 
 class BlogCategory(models.Model):
     title = models.CharField(max_length=255, unique=True, verbose_name="Category Title")
@@ -17,7 +17,8 @@ class BlogPost(models.Model):
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Author"
     )
-    title = models.CharField(max_length=255, verbose_name="Post Title")
+    title = models.CharField(max_length=128, verbose_name="Post Title")
+    short_description = models.CharField(max_length=450, verbose_name="Short description", blank=True)
     slug = models.SlugField(max_length=255, unique=True, blank=True)  # SEO-friendly URL
     content = models.TextField(verbose_name="Content")
     category = models.ForeignKey(
@@ -27,7 +28,25 @@ class BlogPost(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     is_published = models.BooleanField(default=True, verbose_name="Is Published?")
+    is_page = models.BooleanField(default=False, verbose_name="Is a page?")
 
+    def clean_content_text(self):
+        # Usar BeautifulSoup para limpiar el HTML
+        soup = BeautifulSoup(self.content, "html.parser")
+        return soup.get_text()
+    def get_short_description(self, char_limit=250):
+        # Obtener el contenido de texto limpio o la descripción corta
+        if self.short_description:
+            description = self.short_description
+        else:
+            description = self.clean_content_text()
+
+        # Añadir puntos suspensivos si el contenido supera el límite
+        if len(description) > char_limit:
+            return description[:char_limit].rstrip() + "..."
+        else:
+            return description
+    
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)
