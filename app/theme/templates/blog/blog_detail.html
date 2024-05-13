@@ -5,11 +5,16 @@
 <section class="standard-blog-area">
     <div class="container">
         <div class="row justify-content-center">
-            <div id="pagination-content" class="col-lg-8">
-                {% include "blog/partials/detail.html"%}
-            </div>
-            
-            {% include "blog/partials/sidebar.html"%}
+            {% if blog.is_page %}
+                <div class="col-lg-12">
+                    {% include "blog/partials/detail.html"%}
+                </div>
+            {% else %}
+                <div id="pagination-content" class="col-lg-8">
+                    {% include "blog/partials/detail.html"%}
+                </div>
+                {% include "blog/partials/sidebar.html"%}
+            {% endif %}
         </div>
     </div>
 </section>

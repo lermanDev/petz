@@ -16,7 +16,7 @@
         </div>
         <h2 class="title"><a href="{% url 'blog_detail' blog.slug %}">{{ blog.title }}</a></h2>
         <p>{{ blog.get_short_description }}</p>
-        <a href="{% url 'blog_detail' blog.slug %}" class="read-more">Read More <img src="img/icon/pawprint.png" alt=""></a>
+        <a href="{% url 'blog_detail' blog.slug %}" class="read-more">Read More <img src="/static/img/icon/pawprint.png" alt=""></a>
     </div>
 </div>
 {% endfor %}

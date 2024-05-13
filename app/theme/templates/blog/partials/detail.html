@@ -1,9 +1,12 @@
 
 <div class="standard-blog-item mb-50">
+    {% if not blog.is_page %}
     <div class="standard-blog-thumb">
         <img src="/static/img/blog/blog_thumb01.jpg" alt="">
     </div>
+    {% endif %}
     <div class="standard-blog-content blog-details-content">
+        {% if not blog.is_page %}
         <div class="blog-post-meta">
             <ul>
                 <li class="tags"><i class="flaticon-bookmark-1"></i>
@@ -14,8 +17,10 @@
                 <li><i class="far fa-bell"></i> Mar 10, 2021</li>
             </ul>
         </div>
+        {% endif %}
         <h1 class="title">{{ blog.title }}</h1>
         {{ blog.content|safe }}
+        {% if not blog.is_page %}
         <div class="blog-line" data-background="/static/img/blog/blog_item_line.png" style="background-image: url(&quot;/static/img/blog/blog_item_line.png&quot;);"></div>
         <div class="blog-details-bottom">
             <div class="blog-details-tags">
@@ -35,5 +40,6 @@
                 </ul>
             </div>
         </div>
+        {% endif %}
     </div>
 </div>
