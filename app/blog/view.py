@@ -24,7 +24,7 @@ class BlogListView(FilterView):
         except EmptyPage:
             blog_paginated = paginator.page(paginator.num_pages)
 
-        context = {"blog_list": blog_paginated}
+        context = {"blog_list": blog_paginated, "filter": filter}
 
         if request.htmx:
             return render(
@@ -46,16 +46,18 @@ class BlogPostDetailView(DetailView):
 
     def get(self, request, *args, **kwargs):
         blog = BlogPost.objects.get(slug=kwargs["slug"])
+        filter = BlogFilter(request.GET, queryset=BlogPost.objects.all())
 
+        context = {"blog": blog, "filter": filter}
         if request.htmx:
             return render(
                 request,
                 "blog/partials/detail.html",
-                {"blog": blog},
+                context,
             )
 
         return render(
             request,
             "blog/blog_detail.html",
-            {"blog": blog},
+            context,
         )

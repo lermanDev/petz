@@ -1,10 +1,12 @@
 <div class="col-lg-4 col-md-8">
     <aside class="blog-sidebar">
         <div class="widget">
+            
             <h4 class="sidebar-title">Search</h4>
             <div class="sidebar-search">
-                <form action="#">
-                    <input type="text" placeholder="Search ...">
+                <form action="{% url 'blog' %}"
+                    hx-get="{% url 'blog' %}" hx-target="#pagination-content" hx-swap="innerHTML show:.standard-blog-area:top" >
+                    {{ filter.form.search }}
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
             </div>
