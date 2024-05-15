@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_htmx",
     "django_filters",
+    "app",
     "adopter",
     "pet",
     "shelter",

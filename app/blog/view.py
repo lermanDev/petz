@@ -15,7 +15,7 @@ class BlogListView(FilterView):
 
     def get(self, request):
         filter = BlogFilter(request.GET, queryset=BlogPost.objects.all())
-        paginator = Paginator(filter.qs, 2)
+        paginator = Paginator(filter.qs, 15)
         page = request.GET.get("page")
         try:
             blog_paginated = paginator.page(page)

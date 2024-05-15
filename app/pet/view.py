@@ -13,7 +13,7 @@ class PetListView(FilterView):
     filterset_class = PetFilter
 
     def get(self, request):
-        pets_number = request.GET.get("pets_number", 2)
+        pets_number = request.GET.get("pets_number", 15)
         filter = PetFilter(request.GET, queryset=Pet.objects.all())
         
         specie_filter = request.GET.get('specie')

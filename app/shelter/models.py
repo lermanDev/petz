@@ -8,7 +8,7 @@ class Shelter(models.Model):
     state = models.CharField(max_length=100, verbose_name="State")
     zip_code = models.CharField(max_length=10, verbose_name="Zip Code")
     phone = models.CharField(
-        max_length=20, null=True, blank=True, verbose_name="Phone Number"
+        max_length=50, null=True, blank=True, verbose_name="Phone Number"
     )
     email = models.EmailField(null=True, blank=True, verbose_name="Email Address")
     website = models.URLField(null=True, blank=True, verbose_name="Website")
