@@ -1,11 +1,62 @@
 {% extends "base.html" %}
 
 {% block content %}
-  {% if registered %}
-    {% include "registration/partials/registration_success.html" %}
-  {% else %}
-    <div id="form_content">
-      {% include "registration/partials/registration_form.html" with form=form %}
+  <section class="adoption-area pt-50 pb-40">
+    <div class="container">
+        <div class="row align-items-center align-items-xl-end justify-content-center">
+            <div class="section-title text-center mb-65">
+                <div class="section-icon"><img src="/static/img/icon/pawprint.png" alt=""></div>
+                <h5 class="sub-title">Meet the animals</h5>
+                {% if registered %}
+                  <h2 class="title">
+                  ¡Account created!
+                  </h2>
+                  <p class="text-sm my-4 font-light text-gray-500 dark:text-gray-400">
+                  Remember to validate your email, you can <a href="{% url 'login' %}" class="font-medium text-cyan-600 hover:underline dark:text-cyan-500">Login here</a>
+                  </p>
+                {% else %}
+                  <h2 class="title">
+                    Register
+                  </h2>
+                {% endif %}
+            </div>
+        </div>
+
+        {% if not registered %}
+        <div class="row justify-content-center">
+            <div class="col-xl-5 col-lg-6 order-0 order-lg-2">
+                <div class="adoption-content">
+                    <div id="form_content" class="breeder-widget">
+                      <form method="post" class="mb-3" hx-post="{% url 'register' %}" hx-target="#form_content" hx-swap="innerHTML">
+                        <h1 class="h3 mb-4 fw-bold">
+                            Create an account
+                        </h1>
+                        {% csrf_token %}
+                        {{ form.as_div }}
+                        <div class="d-flex align-items-start mb-2">
+                            <div class="form-check">
+                                <input id="terms" aria-describedby="terms-help" type="checkbox" class="form-check-input" required="">
+                                <label for="terms" class="form-check-label small text-muted">
+                                    I accept the <a href="#" class="text-primary">Terms and Conditions</a>
+                                </label>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Register</button>
+                        <p class="small text-muted mt-4">
+                            Already have an account? <a href="{% url 'login' %}" class="text-primary">Login here</a>
+                        </p>
+                      </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-7 col-lg-6 col-md-10 d-flex align-items-center">
+              <div class="adoption-img">
+                  <img src="/static/img/images/adoption_img.jpg" alt="">
+              </div>
+            </div>
+        </div>
+        {% endif %}
     </div>
-  {% endif %}
+    <div class="adoption-shape"><img src="/static/img/images/adoption_shape.png" alt=""></div>
+  </section>
 {% endblock %}

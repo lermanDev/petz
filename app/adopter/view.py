@@ -36,3 +36,17 @@ class AdopterCreateView(CreateView):
 class AdopterLoginView(LoginView):
     form_class = UserLoginForm
     template_name = "registration/login.html"
+
+    def get(self, request):
+        form = UserLoginForm()
+        context = {"form": form, "extends_base": "base.html"}
+        template_name = "registration/login.html"
+
+        if request.htmx:
+            context["extends_base"] = "partials/empty_base.html"
+
+        return render(
+            request,
+            template_name,
+            context,
+        )

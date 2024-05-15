@@ -5,7 +5,7 @@
             <a class="page-link" href="?page={{ page_obj.previous_page_number }}"
                 hx-get="?page={{ page_obj.previous_page_number }}"
                 hx-target="#pagination-content"
-                hx-swap="innerHTML show:.adoption-shop-area:top" aria-label="Previous">
+                hx-swap="innerHTML show:#main_content:top" aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
                 <span class="sr-only">Previous</span>
             </a>
@@ -23,7 +23,7 @@
         <li class="page-item"><a class="page-link" href="?page={{ page_num }}"
                 hx-get="?page={{ page_num }}"
                 hx-target="#pagination-content"
-                hx-swap="innerHTML show:.adoption-shop-area:top">{{ page_num }}</a></li>
+                hx-swap="innerHTML show:#main_content:top">{{ page_num }}</a></li>
         {% endif %}
         {% endfor %}
 
@@ -32,7 +32,7 @@
             <a class="page-link" href="?page={{ page_obj.next_page_number }}"
                 hx-get="?page={{ page_obj.next_page_number }}"
                 hx-target="#pagination-content"
-                hx-swap="innerHTML show:.adoption-shop-area:top" aria-label="Next">
+                hx-swap="innerHTML show:#main_content:top" aria-label="Next">
                 <span aria-hidden="true">&raquo;</span>
                 <span class="sr-only">Next</span>
             </a>

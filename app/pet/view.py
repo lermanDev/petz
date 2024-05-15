@@ -32,15 +32,25 @@ class PetListView(FilterView):
         except EmptyPage:
             pets_paginated = paginator.page(paginator.num_pages)
 
-        context = {"pet_list": pets_paginated, "filter": filter, "specie_filtered": specie_filtered}
+        context = {"pet_list": pets_paginated, "filter": filter, "specie_filtered": specie_filtered, "extends_base": "base.html"}
 
+        print([value for key, value in request.GET.items()])
+        # Determining if filtering is applied
+        is_filtering = any(1 for key, value in request.GET.items() if key != 'page' and (value or value==''))
+
+        # Determining if pagination is applied
+        is_paginating = page is not None
+    
         if request.htmx:
+            context["extends_base"] = "partials/empty_base.html"
+
+        if (is_filtering or is_paginating) and request.htmx:
             return render(
                 request,
                 "pet/partials/list.html",
                 context,
             )
-
+        
         return render(
             request,
             "pet/pets.html",
@@ -57,15 +67,13 @@ class PetView(DetailView):
         filter = PetFilter(request.GET, queryset=Pet.objects.all())
         pet = Pet.objects.get(id=kwargs["id"])
 
+        context = {"pet": pet, "filter": filter, "extends_base": "base.html"}
+        
         if request.htmx:
-            return render(
-                request,
-                "pet/partials/detail.html",
-                {"pet": pet, "filter": filter},
-            )
+            context["extends_base"] = "partials/empty_base.html"
 
         return render(
             request,
             "pet/pet_info.html",
-            {"pet": pet, "filter": filter},
+            context,
         )

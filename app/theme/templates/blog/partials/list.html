@@ -1,7 +1,7 @@
 {% for blog in blog_list %}
 <div class="standard-blog-item">
     <div class="standard-blog-thumb">
-        <a href="{% url 'blog_detail' blog.slug %}"><img src="/static/img/blog/blog_thumb01.jpg" alt=""></a>
+        <a href="{% url 'blog_detail' blog.slug %}" hx-boost="true" hx-target="#pagination-content" hx-swap="transition:true"><img src="/static/img/blog/blog_thumb01.jpg" alt=""></a>
     </div>
     <div class="standard-blog-content">
         <div class="blog-post-meta">
@@ -14,9 +14,9 @@
                 <li><i class="far fa-bell"></i> {{ blog.created_at }}</li>
             </ul>
         </div>
-        <h2 class="title"><a href="{% url 'blog_detail' blog.slug %}">{{ blog.title }}</a></h2>
+        <h2 class="title"><a href="{% url 'blog_detail' blog.slug %}" hx-boost="true" hx-target="#pagination-content" hx-swap="transition:true">{{ blog.title }}</a></h2>
         <p>{{ blog.get_short_description }}</p>
-        <a href="{% url 'blog_detail' blog.slug %}" class="read-more">Read More <img src="/static/img/icon/pawprint.png" alt=""></a>
+        <a href="{% url 'blog_detail' blog.slug %}" hx-boost="true" hx-target="#pagination-content" hx-swap="transition:true" class="read-more">Read More <img src="/static/img/icon/pawprint.png" alt=""></a>
     </div>
 </div>
 {% endfor %}

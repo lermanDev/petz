@@ -4068,13 +4068,8 @@ div#sticky-header {
     min-width: 120px;
 }
 
-#form_content select, #form_content input {
-    display: block;
-    width: 100%;
-    margin-bottom: 10px;
-}
-
-#form_content select, #form_content input{
+#form_content select, #form_content input[type=text],
+#form_content input[type=email], #form_content input[type=password]{
     display: block;
     width: 100%;
     border-radius: .5rem;
@@ -4084,6 +4079,7 @@ div#sticky-header {
     padding: .625rem;
     --tw-text-opacity: 1;
     color: rgb(55 65 81 / 0.9);
+    margin-bottom: 10px;
 }
 
 /**
@@ -4147,4 +4143,8 @@ div#sticky-header {
 
 .owl-carousel .owl-item img {
     max-height: 390px;
+}
+
+.breeder-widget .helptext {
+    font-size: 11px;
 }

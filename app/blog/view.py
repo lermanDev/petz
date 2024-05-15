@@ -24,15 +24,25 @@ class BlogListView(FilterView):
         except EmptyPage:
             blog_paginated = paginator.page(paginator.num_pages)
 
-        context = {"blog_list": blog_paginated, "filter": filter}
+        # Determining if filtering is applied
+        is_filtering = any(1 for key, value in request.GET.items() if key != 'page' and (value or value==''))
+
+        # Determining if pagination is applied
+        is_paginating = page is not None
+
+        context = {"blog_list": blog_paginated, "filter": filter, "extends_base": "base.html"}
 
         if request.htmx:
+            context["extends_base"] = "partials/empty_base.html"
+
+        if (is_filtering or is_paginating) and request.htmx:
+            print(context)
             return render(
                 request,
                 "blog/partials/list.html",
                 context,
             )
-
+        
         return render(
             request,
             "blog/blog.html",

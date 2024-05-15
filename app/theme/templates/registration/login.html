@@ -1,27 +1,52 @@
-{% extends "base.html" %}
+{% extends extends_base %}
 
 {% block content %}
-{% if logged or request.user.is_authenticated %}
-<div class="flex flex-col items-center justify-center">
-  <h1 class="text-xl mb-4 font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-gray-100">
-    ¡Welcome {{ request.user.username }}!
-  </h1>
-  <p class="text-sm my-4 font-light text-gray-500 dark:text-gray-400">You can <a href="{% url 'logout' %}" class="font-medium text-cyan-600 hover:underline dark:text-cyan-500">log out</a> or see our<a href="{% url 'login' %}" class="font-medium text-cyan-600 hover:underline dark:text-cyan-500"> available pets</a></p>
-</div>
-{% else %}
-<div id="form_content">
-  <h1 class="text-xl mb-4 font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-gray-100">
-    Log in
-  </h1>
-  <form method="post" class="space-y-2 md:space-y-2 dark:text-gray-300">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="w-full text-gray-100 bg-cyan-600 hover:bg-cyan-700 focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-800">Log in</button>
-  </form>
-  <p class="text-sm my-4 font-light text-gray-500 dark:text-gray-400">
-    Don't have alredy an account? <a href="{% url 'register' %}" class="font-medium text-cyan-600 hover:underline dark:text-cyan-500">Register here</a>
-  </p>
-</div>
-{% endif %}
+<section class="adoption-area pt-50 pb-40">
+  <div class="container">
+      <div class="row align-items-center align-items-xl-end justify-content-center">
+          <div class="section-title text-center mb-65">
+              <div class="section-icon"><img src="/static/img/icon/pawprint.png" alt=""></div>
+              <h5 class="sub-title">Meet the animals</h5>
+              
+                {% if logged or request.user.is_authenticated %}
+                  <h2 class="title">
+                    Welcome {{ request.user.username }}!
+                  </h2>
+                  <p class="mb-4 small text-muted">You can <a href="{% url 'logout' %}" class="text-primary">log out</a> or see our <a href="{% url 'pets' %}" class="text-primary">available pets</a></p>
+                {% else %}
+                  <h2 class="title">
+                    Login
+                  </h2>
+                {% endif %}
+          </div>
+      </div>
+
+      {% if not logged and not request.user.is_authenticated %}
+      <div class="row justify-content-center">
+          <div class="col-xl-5 col-lg-6 order-0 order-lg-2">
+              <div class="adoption-content">
+                  
+                  <div id="form_content" class="breeder-widget">
+                    <form method="post" class="mb-4">
+                      {% csrf_token %}
+                      {{ form.as_div }}
+                      <button type="submit" class="btn btn-primary w-100">Log in</button>
+                    </form>
+                    <p class="mb-4 small text-muted">
+                      Don't have an account? <a href="{% url 'register' %}" class="text-primary">Register here</a>
+                    </p>
+                  </div>
+              </div>
+          </div>
+          <div class="col-xl-7 col-lg-6 col-md-10 d-flex align-items-center">
+            <div class="adoption-img">
+                <img src="/static/img/images/adoption_img.jpg" alt="">
+            </div>
+          </div>
+          {% endif %}
+      </div>
+  </div>
+  <div class="adoption-shape"><img src="/static/img/images/adoption_shape.png" alt=""></div>
+</section>
 
 {% endblock %}
