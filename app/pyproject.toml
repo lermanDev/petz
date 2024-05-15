@@ -12,18 +12,12 @@ psycopg2-binary = "^2.9.9"
 pytest = "^7.4.2"
 black = "^23.9.1"
 pytest-django = "^4.5.2"
-django-blog-zinnia = {git = "https://github.com/arrobalytics/django-blog-zinnia.git", rev = "v0.22-alpha4"}
-django-xmlrpc = "^0.1.8"
-mots-vides = "^2015.5.11"
-django-tagging = "^0.5.0"
-django-contrib-comments = "^2.2.0"
-regex = "^2023.10.3"
-pyparsing = "^3.1.1"
-django-mptt = "^0.15.0"
 beautifulsoup4 = "^4.12.2"
 pillow = "^10.1.0"
 django-htmx = "^1.17.0"
 django-filter = "^23.3"
+faker = "^25.2.0"
+requests = "^2.31.0"
 
 
 [build-system]
