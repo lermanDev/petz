@@ -18,6 +18,7 @@ django-htmx = "^1.17.0"
 django-filter = "^23.3"
 faker = "^25.2.0"
 requests = "^2.31.0"
+django-jazzmin = "^3.0.0"
 
 
 [build-system]

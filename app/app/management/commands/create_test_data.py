@@ -11,6 +11,8 @@ import random
 from faker import Faker
 import requests
 from django.core.files.base import ContentFile
+import os
+from django.core.exceptions import ValidationError
 
 User = get_user_model()
 
@@ -54,7 +56,7 @@ class Command(BaseCommand):
         self.stdout.write(self.style.SUCCESS('Test data created successfully'))
 
     def create_species(self, count):
-        species_names = [fake.word() for _ in range(count)]
+        species_names = ["Perro", "Gato", "Hamster", "Conejo", "Ave"]
         for name in species_names:
             Specie.objects.get_or_create(name=name, description=fake.text())
 
@@ -64,12 +66,12 @@ class Command(BaseCommand):
             Characteristic.objects.get_or_create(name=name)
 
     def create_genders(self, count):
-        genders = [fake.word() for _ in range(count)]
+        genders = ["Macho", "Hembra"]
         for name in genders:
             Gender.objects.get_or_create(name=name)
 
     def create_sizes(self, count):
-        sizes = [fake.word() for _ in range(count)]
+        sizes = ["Pequeño", "Mediano", "Grande"]
         for name in sizes:
             Size.objects.get_or_create(name=name)
 
@@ -81,7 +83,7 @@ class Command(BaseCommand):
                 address=fake.address(),
                 phone=fake.phone_number(),
             )
-            image_url = "https://themebeyond.com/pre/petco-prev/petco-live/img/blog/blog_thumb01.jpg"
+            image_url = "https://adoptasalvaunavida.com/imas/animales/_2878/a_28781713357321.jpg"
             self.download_and_save_image(shelter, image_url, 'image', 'shelters/')
 
     def create_pets(self, count):
@@ -107,9 +109,16 @@ class Command(BaseCommand):
             pet.characteristics.set(random.sample(characteristics, k=min(2, len(characteristics))))
             pet.save()
 
-            image_url = "https://themebeyond.com/pre/petco-prev/petco-live/img/product/adoption_shop_thumb01.jpg"
+            image_url = random.choice([
+                "https://adoptasalvaunavida.com/imas/animales/_2893/a_28931715778094.jpg",
+                "https://adoptasalvaunavida.com/imas/animales/_2892/a_28921715777769.jpg",
+                "https://adoptasalvaunavida.com/imas/animales/_2889/a_28891715202896.jpg",
+                "https://adoptasalvaunavida.com/imas/animales/_2887/a_28871714857048.jpg",
+                "https://adoptasalvaunavida.com/imas/animales/_2882/a_28821713790894.jpg",
+                "https://adoptasalvaunavida.com/imas/animales/_2878/a_28781713357321.jpg",
+            ])
             pet_image = PetImage.objects.create()
-            self.download_and_save_image(pet_image, image_url, 'images', 'pets/gallery/')
+            self.download_and_save_image(pet_image, image_url, 'image', 'pets/gallery/')
             pet.images.add(pet_image)
 
     def create_blog_data(self, category_count, post_count, comment_count, tag_count):
@@ -153,8 +162,18 @@ class Command(BaseCommand):
                         )
 
     def download_and_save_image(self, instance, url, field_name, upload_to):
-        response = requests.get(url)
-        if response.status_code == 200:
-            file_name = url.split('/')[-1]
-            file_content = ContentFile(response.content)
-            getattr(instance, field_name).save(file_name, file_content, save=True)
+        try:
+            response = requests.get(url)
+            if response.status_code == 200:
+                file_name = url.split('/')[-1]
+                # Ensure the file name is valid
+                file_name = os.path.basename(file_name)
+                if not file_name:
+                    raise ValidationError(f"Invalid file name extracted from URL: {url}")
+                file_content = ContentFile(response.content)
+                getattr(instance, field_name).save(file_name, file_content, save=True)
+                print(f"Image saved: {file_name}")
+            else:
+                print(f"Failed to download image from {url}: HTTP {response.status_code}")
+        except Exception as e:
+            print(f"An error occurred while downloading or saving the image: {e}")
