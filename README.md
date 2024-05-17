@@ -58,7 +58,14 @@ Welcome to the CMS Pet Adoption Project! This project uses Django and htmx to cr
    ```bash
    docker-compose exec web poetry run python manage.py createsuperuser
    ```
+6. **Create fake data if you want**
+   ```bash
+   # Create only species and pets with images
+   python manage.py create_test_data --species 5 --pets 10
 
+   # Create all data
+   python manage.py create_test_data --species 5 --characteristics 12 --genders 2 --sizes 3 --shelters 6 --pets 50 --categories 3 --posts 56 --comments 2 --tags 5
+   ```
 6. **Access the App**:
    - Navigate to http://localhost:8000 in your browser.
 

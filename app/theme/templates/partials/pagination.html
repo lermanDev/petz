@@ -17,14 +17,34 @@
         {% endif %}
 
         {% for page_num in page_obj.paginator.page_range %}
-        {% if page_obj.number == page_num %}
-        <li class="page-item active"><span class="page-link">{{ page_num }}</span></li>
-        {% else %}
-        <li class="page-item"><a class="page-link" href="?page={{ page_num }}"
-                hx-get="?page={{ page_num }}"
-                hx-target="#pagination-content"
-                hx-swap="innerHTML show:#main_content:top">{{ page_num }}</a></li>
-        {% endif %}
+            {% if page_num == 1 %}
+                <li class="page-item {% if page_obj.number == page_num %}active{% endif %}">
+                    <a class="page-link" href="?page={{ page_num }}"
+                        hx-get="?page={{ page_num }}"
+                        hx-target="#pagination-content"
+                        hx-swap="innerHTML show:#main_content:top">{{ page_num }}</a>
+                </li>
+                {% if page_obj.number > 4 %}
+                <li class="page-item disabled"><span class="page-link">...</span></li>
+                {% endif %}
+            {% elif page_num == page_obj.paginator.num_pages %}
+                {% if page_obj.number < page_obj.paginator.num_pages|add:-3 %}
+                <li class="page-item disabled"><span class="page-link">...</span></li>
+                {% endif %}
+                <li class="page-item {% if page_obj.number == page_num %}active{% endif %}">
+                    <a class="page-link" href="?page={{ page_num }}"
+                        hx-get="?page={{ page_num }}"
+                        hx-target="#pagination-content"
+                        hx-swap="innerHTML show:#main_content:top">{{ page_num }}</a>
+                </li>
+            {% elif page_num >= page_obj.number|add:-2 and page_num <= page_obj.number|add:2 %}
+                <li class="page-item {% if page_obj.number == page_num %}active{% endif %}">
+                    <a class="page-link" href="?page={{ page_num }}"
+                        hx-get="?page={{ page_num }}"
+                        hx-target="#pagination-content"
+                        hx-swap="innerHTML show:#main_content:top">{{ page_num }}</a>
+                </li>
+            {% endif %}
         {% endfor %}
 
         {% if page_obj.has_next %}
