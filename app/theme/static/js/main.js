@@ -327,54 +327,54 @@ $('.testimonial-active').slick({
 /*=============================================
 	=             Adoption Active          =
 =============================================*/
-$('.adopt-active').slick({
-	dots: false,
-	infinite: true,
-	speed: 1000,
-	autoplay: false,
-	arrows: true,
-	autoplaySpeed: 3000,
-	prevArrow: '<button type="button" class="slick-prev"><img src="/static/img/icon/arrow.png" /></button>',
-	nextArrow: '<button type="button" class="slick-next"><img src="/static/img/icon/arrow.png" /></button>',
-	slidesToShow: 4,
-	slidesToScroll: 1,
-	responsive: [
-		{
-			breakpoint: 1200,
-			settings: {
-				slidesToShow: 3,
-				slidesToScroll: 1,
-				infinite: true,
-			}
-		},
-		{
-			breakpoint: 992,
-			settings: {
-				slidesToShow: 2,
-				slidesToScroll: 1,
-				speed: 1000,
-			}
-		},
-		{
-			breakpoint: 767,
-			settings: {
-				slidesToShow: 2,
-				slidesToScroll: 1,
-				arrows: false,
-				speed: 1000,
-			}
-		},
-		{
-			breakpoint: 575,
-			settings: {
-				slidesToShow: 1,
-				slidesToScroll: 1,
-				arrows: false,
-				speed: 1000,
-			}
-		},
-	]
-});
+// $('.adopt-active').slick({
+// 	dots: false,
+// 	infinite: true,
+// 	speed: 1000,
+// 	autoplay: false,
+// 	arrows: true,
+// 	autoplaySpeed: 3000,
+// 	prevArrow: '<button type="button" class="slick-prev"><img src="/static/img/icon/arrow.png" /></button>',
+// 	nextArrow: '<button type="button" class="slick-next"><img src="/static/img/icon/arrow.png" /></button>',
+// 	slidesToShow: 4,
+// 	slidesToScroll: 1,
+// 	responsive: [
+// 		{
+// 			breakpoint: 1200,
+// 			settings: {
+// 				slidesToShow: 3,
+// 				slidesToScroll: 1,
+// 				infinite: true,
+// 			}
+// 		},
+// 		{
+// 			breakpoint: 992,
+// 			settings: {
+// 				slidesToShow: 2,
+// 				slidesToScroll: 1,
+// 				speed: 1000,
+// 			}
+// 		},
+// 		{
+// 			breakpoint: 767,
+// 			settings: {
+// 				slidesToShow: 2,
+// 				slidesToScroll: 1,
+// 				arrows: false,
+// 				speed: 1000,
+// 			}
+// 		},
+// 		{
+// 			breakpoint: 575,
+// 			settings: {
+// 				slidesToShow: 1,
+// 				slidesToScroll: 1,
+// 				arrows: false,
+// 				speed: 1000,
+// 			}
+// 		},
+// 	]
+// });
 
 
 /*=============================================

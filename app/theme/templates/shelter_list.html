@@ -1,0 +1,31 @@
+<!-- shelter_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shelter List</title>
+</head>
+<body>
+    <h1>Shelter List</h1>
+    <form method="get">
+        {{ filter.form.as_p }}
+        <button type="submit">Search</button>
+    </form>
+    <ul>
+        {% for shelter in shelters %}
+            <li>
+                <h2>{{ shelter.name }}</h2>
+                <p>{{ shelter.address }}</p>
+                <p>{{ shelter.city }}, {{ shelter.state.name }} {{ shelter.zip_code }}</p>
+                <p>{{ shelter.phone }}</p>
+                <p>{{ shelter.email }}</p>
+                <p>{{ shelter.website }}</p>
+                <p>{{ shelter.description }}</p>
+                {% if shelter.image %}
+                    <img src="{{ shelter.image.url }}" alt="{{ shelter.name }}">
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

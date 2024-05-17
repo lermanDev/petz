@@ -58,6 +58,7 @@
             // pet image carrousel when htmx from list
             document.body.addEventListener('htmx:afterSwap', function(event) {
                 if (event.target.id === 'main_content') {
+                    console.log("refreshed");
                     $('.pet-images-carousel').owlCarousel({
                         margin:10,
                         loop:true,

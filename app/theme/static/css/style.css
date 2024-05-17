@@ -1387,6 +1387,7 @@ div#sticky-header {
 .adopt-thumb img {
     display: inline-block;
     border-radius: 50%;
+    max-height: 250px;
 }
 .adopt-thumb .status {
     position: absolute;

@@ -1,0 +1,23 @@
+<div class="row adopt-active" id="pagination-content">
+{% for shelter in shelter_list %}
+    <div class="col-lg-4 mb-4">
+        <div class="adoption-item">
+            <div class="adopt-thumb">
+                {% if shelter.image %}
+                    <a href="{% url 'pets' %}?shelter={{ shelter.id }}"><img src="{{ shelter.image.url }}" alt="{{ shelter.name }}"></a>
+                {% endif %}
+            </div>
+            <div class="adopt-content">
+                <div class="adopt-date"><i class="fa fa-map-marked"></i>{{ shelter.city }}, {{ shelter.state.name }} {{ shelter.zip_code }}</div>
+                <h3 class="title"><a href="{% url 'pets' %}?shelter={{ shelter.id }}">{{ shelter.name }}</a></h3>
+                <p>{{ shelter.description }}</p>
+                <p>{{ shelter.address }} {{ shelter.phone }}</p>
+                <p>{{ shelter.email }} {{ shelter.website }}</p>
+                
+                <a href="{% url 'pets' %}?shelter={{ shelter.id }}" class="read-more">Read More <img src="/static/img/icon/pawprint.png" alt=""></a>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+</div>
+{% include "partials/pagination.html" with page_obj=shelter_list %}

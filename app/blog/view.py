@@ -36,7 +36,6 @@ class BlogListView(FilterView):
             context["extends_base"] = "partials/empty_base.html"
 
         if (is_filtering or is_paginating) and request.htmx:
-            print(context)
             return render(
                 request,
                 "blog/partials/list.html",

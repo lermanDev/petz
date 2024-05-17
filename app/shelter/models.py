@@ -1,11 +1,23 @@
 from django.db import models
 
 
+class State(models.Model):
+    name = models.CharField(max_length=100, unique=True, verbose_name="State Name")
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = "State"
+        verbose_name_plural = "States"
+        ordering = ["name"]
+        
+
 class Shelter(models.Model):
     name = models.CharField(max_length=255, verbose_name="Shelter Name")
     address = models.TextField(verbose_name="Address")
     city = models.CharField(max_length=100, verbose_name="City")
-    state = models.CharField(max_length=100, verbose_name="State")
+    state = models.ForeignKey(State, on_delete=models.CASCADE, verbose_name="State")
     zip_code = models.CharField(max_length=10, verbose_name="Zip Code")
     phone = models.CharField(
         max_length=50, null=True, blank=True, verbose_name="Phone Number"

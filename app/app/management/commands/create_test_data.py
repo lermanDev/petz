@@ -5,7 +5,7 @@ from django.utils.text import slugify
 from django.contrib.auth import get_user_model
 from django.utils import timezone
 from pet.models import Specie, Characteristic, Gender, Size, Pet, PetImage
-from shelter.models import Shelter
+from shelter.models import Shelter, State
 from blog.models import BlogCategory, BlogPost, Comment, Tag
 import random
 from faker import Faker
@@ -75,13 +75,25 @@ class Command(BaseCommand):
         for name in sizes:
             Size.objects.get_or_create(name=name)
 
+    def create_states(self):
+        states = ["California", "Texas", "New York", "Florida", "Illinois"]
+        for state_name in states:
+            State.objects.get_or_create(name=state_name)
+
+
     def create_shelters(self, count):
+        states = State.objects.all()
+        if not states.exists():
+            self.create_states()
+            states = State.objects.all()
+
         for _ in range(count):
             shelter = Shelter.objects.create(
                 name=fake.company(),
                 city=fake.city(),
                 address=fake.address(),
                 phone=fake.phone_number(),
+                state=random.choice(states)
             )
             image_url = "https://adoptasalvaunavida.com/imas/animales/_2878/a_28781713357321.jpg"
             self.download_and_save_image(shelter, image_url, 'image', 'shelters/')

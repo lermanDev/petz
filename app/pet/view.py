@@ -34,7 +34,6 @@ class PetListView(FilterView):
 
         context = {"pet_list": pets_paginated, "filter": filter, "specie_filtered": specie_filtered, "extends_base": "base.html"}
 
-        print([value for key, value in request.GET.items()])
         # Determining if filtering is applied
         is_filtering = any(1 for key, value in request.GET.items() if key != 'page' and (value or value==''))
 
