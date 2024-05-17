@@ -58,17 +58,16 @@
             // pet image carrousel when htmx from list
             document.body.addEventListener('htmx:afterSwap', function(event) {
                 if (event.target.id === 'main_content') {
-                    setTimeout(function(){ 
-                        $('.pet-images-carousel').owlCarousel({
-                            margin:10,
-                            loop:true,
-                            autoWidth:true,
-                            items:4,
-                            autoplay: true,
-                            dots: true,
-                            center: true
-                        })
-                    }, 50);
+                    $('.pet-images-carousel').owlCarousel({
+                        margin:10,
+                        loop:true,
+                        autoWidth:true,
+                        items:4,
+                        autoplay: true,
+                        lazyLoad: true,
+                        dots: true,
+                        center: true
+                    })
                 }
             });
         </script>

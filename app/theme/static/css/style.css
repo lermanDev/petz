@@ -1574,6 +1574,7 @@ div#sticky-header {
     border: 1px solid #ebebeb;
     border-radius: 10px;
     padding: 40px 25px;
+    height: fit-content;
     margin-bottom: 30px;
 }
 .breeder-widget:last-child {
@@ -4146,6 +4147,13 @@ div#sticky-header {
     max-height: 390px;
 }
 
+.owl-stage {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-box;
+    display: box;
+}
+
 .breeder-widget .helptext {
     font-size: 11px;
 }
@@ -4153,4 +4161,13 @@ div#sticky-header {
 .adoption-shop-content p {
     font-size: 14px;
     line-height: 22px;
+}
+
+.breeder-item {
+    display: inline;
+}
+
+.breeder-item img {
+    width: auto;
+    max-height: 250px;
 }
