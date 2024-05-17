@@ -45,16 +45,12 @@
               </div>
               <div class="col-2">
                   <div class="footer-widget">
-                      <h4 class="fw-title">Our Services</h4>
+                      <h4 class="fw-title">Pets on adoption</h4>
                       <div class="fw-link">
                           <ul>
-                              <li><a href="breeder.html">Our Breeder</a></li>
-                              <li><a href="adoption.html">Our Adoption</a></li>
-                              <li><a href="contact.html">Editorial Policy</a></li>
-                              <li><a href="contact.html">Return Policy</a></li>
-                              <li><a href="contact.html">Grievance Policy</a></li>
-                              <li><a href="contact.html">Redressal Policy</a></li>
-                              <li><a href="contact.html">Contact Us</a></li>
+                            {% for specie in species_list %}
+                                <li><a href="{% url 'pets' %}?specie={{ specie.id }}" hx-boost="false">{{ specie.name }}</a></li>
+                            {% endfor %}
                           </ul>
                       </div>
                   </div>

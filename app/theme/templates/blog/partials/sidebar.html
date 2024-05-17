@@ -16,10 +16,14 @@
             <h4 class="sidebar-title">Categories</h4>
             <div class="sidebar-cat-list">
                 <ul>
-                    <li><a href="#">Siberian Husky <i class="fas fa-angle-double-right"></i></a></li>
-                    <li><a href="#">German Sherped <i class="fas fa-angle-double-right"></i></a></li>
-                    <li><a href="#">French Bulldog <i class="fas fa-angle-double-right"></i></a></li>
-                    <li><a href="#">Golden Retriever <i class="fas fa-angle-double-right"></i></a></li>
+                    {% for category in blog_categories %}
+                        <li>
+                            <a href="{% url 'blog' %}?category={{ category.id }}">
+                                {{ category.title }}
+                                <i class="fas fa-angle-double-right"></i>
+                            </a>
+                        </li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>

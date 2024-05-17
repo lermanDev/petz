@@ -12,13 +12,9 @@
                                   <li class="active"><a href="/">Inicio</a></li>
                                   <li class="menu-item-has-children"><a href="{% url 'pets' %}">Adopta</a>
                                       <ul class="submenu">
-                                          <li><a href="{% url 'pets' %}">Perros</a></li>
-                                          <li><a href="{% url 'pets' %}">Gatos</a></li>
-                                          <li><a href="{% url 'pets' %}">Aves</a></li>
-                                          <li><a href="{% url 'pets' %}">Roedores</a></li>
-                                          <li><a href="{% url 'pets' %}">Reptiles</a></li>
-                                          <li><a href="{% url 'pets' %}">Peces</a></li>
-                                          <li><a href="{% url 'pets' %}">Otros animales</a></li>
+                                        {% for specie in species_list %}
+                                            <li><a href="{% url 'pets' %}?specie={{ specie.id }}" hx-boost="false">{{ specie.name }}</a></li>
+                                        {% endfor %}
                                       </ul>
                                   </li>
                                   <li class="menu-item-has-children"><a href="{% url 'blog' %}">Colabora</a>
