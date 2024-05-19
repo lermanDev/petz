@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
-from django.urls import path
+from django.urls import path, include
 from adopter.view import AdopterCreateView, AdopterLoginView
 from pet.view import PetListView, PetView
 from blog.view import BlogListView, BlogPostDetailView
@@ -23,7 +23,8 @@ urlpatterns = [
         "adopt/<str:specie>/<str:city>/<str:id>_<str:name>",
         PetView.as_view(),
         name="pet",
-    )
+    ),
+    path('tinymce/', include('tinymce.urls')),
     # path("adopter/", include("django.contrib.auth.urls")),
 ]
 

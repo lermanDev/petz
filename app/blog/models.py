@@ -2,6 +2,7 @@ from django.db import models
 from django.conf import settings
 from django.utils.text import slugify
 from bs4 import BeautifulSoup
+from tinymce.models import HTMLField
 
 class BlogCategory(models.Model):
     title = models.CharField(max_length=255, unique=True, verbose_name="Category Title")
@@ -20,7 +21,7 @@ class BlogPost(models.Model):
     title = models.CharField(max_length=128, verbose_name="Post Title")
     short_description = models.CharField(max_length=450, verbose_name="Short description", blank=True)
     slug = models.SlugField(max_length=255, unique=True, blank=True)  # SEO-friendly URL
-    content = models.TextField(verbose_name="Content")
+    content = HTMLField()
     category = models.ForeignKey(
         BlogCategory, on_delete=models.SET_NULL, null=True, verbose_name="Category"
     )

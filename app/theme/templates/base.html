@@ -52,28 +52,6 @@
         {% include "partials/footer.html"%}
         <!-- footer-end -->
 
-
-        
-        <script>
-            // pet image carrousel when htmx from list
-            document.body.addEventListener('htmx:afterSwap', function(event) {
-                if (event.target.id === 'main_content') {
-                    console.log("refreshed");
-                    $('.pet-images-carousel').owlCarousel({
-                        margin:10,
-                        loop:true,
-                        autoWidth:true,
-                        items:4,
-                        autoplay: true,
-                        lazyLoad: true,
-                        dots: true,
-                        center: true
-                    })
-                }
-            });
-        </script>
-
-
 		<!-- JS here -->
         <script src="/static/js/vendor/jquery-3.6.0.min.js"></script>
         <script src="/static/js/bootstrap.min.js"></script>

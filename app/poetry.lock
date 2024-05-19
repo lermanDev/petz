@@ -140,6 +140,17 @@ python-versions = ">=3.8"
 django = ">=4.2"
 
 [[package]]
+name = "django-tinymce"
+version = "4.0.0"
+description = "A Django application that contains a widget to render a"
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[package.dependencies]
+django = ">=3.2"
+
+[[package]]
 name = "exceptiongroup"
 version = "1.2.1"
 description = "Backport of PEP 654 (exception groups)"
@@ -382,7 +393,7 @@ zstd = ["zstandard (>=0.18.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.9,<3.13"
-content-hash = "12308a6b453669ec2a8e67db1653ce0799e31cd6c3cc05c50f714003d5ceda12"
+content-hash = "4184bd9e656a3bc6dce06d436bccfc8956033019dfc936e9eb0e51f862755f03"
 
 [metadata.files]
 asgiref = []
@@ -396,6 +407,7 @@ django = []
 django-filter = []
 django-htmx = []
 django-jazzmin = []
+django-tinymce = []
 exceptiongroup = []
 faker = []
 idna = []
