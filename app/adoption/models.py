@@ -3,64 +3,50 @@ from pet.models import Pet
 from adopter.models import Adopter
 
 
-class Adoption(models.Model):
-    ADOPTION_STATUS_CHOICES = [
-        ("ready", "Ready"),
-        ("special_condition", "Special Condition"),
-        ("reserved", "Reserved"),
-        ("waiting", "Waiting"),
-        ("adopted", "Adopted"),
-        ("deleted", "Deleted"),
-    ]
+class QuestionType(models.TextChoices):
+    TEXT = 'text', 'Text'
+    SELECT = 'select', 'Select'
+    CHECKBOX = 'checkbox', 'Checkbox'
 
-    pet = models.ForeignKey(Pet, on_delete=models.CASCADE, verbose_name="Pet")
-    status = models.CharField(
-        max_length=20, choices=ADOPTION_STATUS_CHOICES, verbose_name="Adoption Status"
-    )
-    extra_location = models.CharField(
-        max_length=255, blank=True, null=True, verbose_name="Extra Location"
-    )
-    entry_date = models.DateTimeField(verbose_name="Entry Date")
-    description = models.TextField(blank=True, null=True, verbose_name="Description")
-    history = models.TextField(blank=True, null=True, verbose_name="History")
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Created At")
-    updated_at = models.DateTimeField(auto_now=True, verbose_name="Updated At")
+class Question(models.Model):
+    text = models.CharField(max_length=255)
+    question_type = models.CharField(max_length=20, choices=QuestionType.choices)
+    value = models.IntegerField(default=1)
+    parent_question = models.ForeignKey('self', null=True, blank=True, related_name='sub_questions', on_delete=models.CASCADE)
 
-    class Meta:
-        verbose_name = "Adoption"
-        verbose_name_plural = "Adoptions"
+    def __str__(self):
+        return self.text
 
+class Option(models.Model):
+    question = models.ForeignKey(Question, related_name='options', on_delete=models.CASCADE)
+    text = models.CharField(max_length=255)
+    value = models.IntegerField(default=1)
 
-class AdoptionRequest(models.Model):
-    REQUEST_STATUS_CHOICES = [
-        ("pending", "Pending"),
-        ("approved", "Approved"),
-        ("rejected", "Rejected"),
-        ("cancelled", "Cancelled"),
-    ]
+    def __str__(self):
+        return self.text
 
-    adoption = models.ForeignKey(
-        Adoption, on_delete=models.CASCADE, verbose_name="Adoption"
-    )
-    adopter = models.ForeignKey(
-        Adopter, on_delete=models.CASCADE, verbose_name="Adopter"
-    )
-    status = models.CharField(
-        max_length=20,
-        choices=REQUEST_STATUS_CHOICES,
-        default="pending",
-        verbose_name="Request Status",
-    )
+class Questionnaire(models.Model):
+    title = models.CharField(max_length=255)
+    shelter = models.ForeignKey('shelter.Shelter', on_delete=models.CASCADE)
+    questions = models.ManyToManyField(Question)
 
-    message = models.TextField(blank=True, null=True, verbose_name="Message to Shelter")
-    response = models.TextField(
-        blank=True, null=True, verbose_name="Response from Shelter"
-    )
+    def __str__(self):
+        return self.title
 
-    # Record keeping
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Created At")
-    updated_at = models.DateTimeField(auto_now=True, verbose_name="Updated At")
+class AdoptionApplication(models.Model):
+    user = models.ForeignKey(Adopter, on_delete=models.CASCADE)
+    pet = models.ForeignKey('pet.Pet', on_delete=models.CASCADE)
+    questionnaire = models.ForeignKey(Questionnaire, on_delete=models.CASCADE)
+    answers = models.JSONField()
 
-    class Meta:
-        verbose_name = "Adoption Request"
-        verbose_name_plural = "Adoption Requests"
+    def get_score(self):
+        score = 0
+        for question_id, answer in self.answers.items():
+            question = Question.objects.get(id=question_id)
+            if question.question_type == QuestionType.CHECKBOX:
+                score += question.value if answer else 0
+            else:
+                option = question.options.filter(id=answer).first()
+                if option:
+                    score += option.value
+        return score
