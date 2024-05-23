@@ -6,7 +6,7 @@ from django.forms.widgets import TextInput
 class BlogFilter(django_filters.FilterSet):
     search = django_filters.CharFilter(
         method='search_filter', 
-        widget=TextInput(attrs={'placeholder': 'Search on blog'}),
+        widget=TextInput(attrs={'placeholder': 'Search on blog...'}),
         required=True
     )
 

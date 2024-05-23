@@ -3,6 +3,8 @@ from django.views.generic import CreateView, ListView, DetailView
 from django.shortcuts import get_object_or_404, render
 from .models import Pet, Questionnaire, AdoptionApplication
 from .forms import AdoptionApplicationForm
+from blog.filters import BlogFilter
+
 
 class ApplyForAdoptionView(CreateView):
     model = AdoptionApplication
@@ -19,9 +21,13 @@ class ApplyForAdoptionView(CreateView):
     
     def get(self, request, *args, **kwargs):
         self.object = None
+        filter = BlogFilter(request.GET)
+
         form = self.get_form()
         pet = get_object_or_404(Pet, id=self.kwargs['pet_id'])
         context = self.get_context_data(form=form, pet_name=pet.name)
+        context['filter'] = filter
+
         if request.htmx:
             context['extends_base'] = 'partials/empty_base.html'
             return render(request, 'adoption/apply.html', context)
