@@ -6,10 +6,10 @@
                   <div class="mobile-nav-toggler"><i class="fas fa-bars"></i></div>
                   <div class="menu-wrap">
                       <nav class="menu-nav show" hx-boost="true" hx-target="#main_content" hx-swap="transition:true">
-                          <div class="logo"><a href="{% url 'pets' %}"><img src="/static/img/logo/petz_logo.png" alt="" style="max-width: 150px;"></a></div>
+                          <div class="logo"><a href="/" hx-boost="false"><img src="/static/img/logo/petz_logo.png" alt="" style="max-width: 150px;"></a></div>
                           <div class="navbar-wrap main-menu d-none d-lg-flex">
                               <ul class="navigation">
-                                  <li class="active"><a href="/">Inicio</a></li>
+                                  <li class="active"><a href="/" hx-boost="false">Inicio</a></li>
                                   <li class="menu-item-has-children"><a href="{% url 'pets' %}">Adopta</a>
                                       <ul class="submenu">
                                         {% for specie in species_list %}

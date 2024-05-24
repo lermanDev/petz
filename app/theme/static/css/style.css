@@ -4172,3 +4172,7 @@ div#sticky-header {
     width: auto;
     max-height: 250px;
 }
+
+.other-find i.flaticon-location {
+    margin-right: 10px;
+}

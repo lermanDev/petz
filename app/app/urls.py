@@ -3,16 +3,20 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from django.urls import path, include
+from django.contrib.auth.views import LogoutView
+
 from adopter.view import AdopterCreateView, AdopterLoginView
 from pet.view import PetListView, PetView
 from blog.view import BlogListView, BlogPostDetailView
 from shelter.view import ShelterListView
 from adoption.view import ApplyForAdoptionView
-from django.contrib.auth.views import LogoutView
-
+from .view import HomeView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+
+    path('', HomeView.as_view(), name='home'),
+
     path("register", AdopterCreateView.as_view(), name="register"),
     path("login", AdopterLoginView.as_view(next_page="login"), name="login"),
     path("logout", LogoutView.as_view(next_page="login"), name="logout"),
