@@ -162,3 +162,5 @@ cython_debug/
 
 app/static/pets/gallery/
 app/static/shelters/gallery
+.env.dev
+.env.prod

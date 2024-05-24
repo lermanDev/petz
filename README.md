@@ -19,11 +19,11 @@ Welcome to the CMS Pet Adoption Project! This project uses Django and htmx to cr
 
 2. **Configure environment variables**:
 
-   - Create a `.env` file in the root directory.
+   - Create .env.dev for dev and .env.prod for production in the root directory.
    - Fill in the necessary variables:
 
+   env.dev
    ```env
-   DB_SERVICE_NAME=database
    POSTGRES_DB=mydb
    POSTGRES_USER=myuser
    POSTGRES_PASSWORD=mypassword
@@ -33,17 +33,40 @@ Welcome to the CMS Pet Adoption Project! This project uses Django and htmx to cr
    DJANGO_SQL_DATABASE=${POSTGRES_DB}
    DJANGO_SQL_USER=${POSTGRES_USER}
    DJANGO_SQL_PASSWORD=${POSTGRES_PASSWORD}
-   DJANGO_SQL_HOST=${DB_SERVICE_NAME}
+   DJANGO_SQL_HOST=database
    DJANGO_SQL_PORT=5432
    SECRET_KEY="django-insecure-n5(x*k+%5+g9gu@71#@)o=s3yrxmp%r^vc8wd+8eh5@2emz_5-"
+   ```
 
+   env.prod
+   ```env
+   POSTGRES_DB=mydb
+   POSTGRES_USER=myuser
+   POSTGRES_PASSWORD=mypassword
+
+   DEBUG=0
+   DJANGO_SQL_ENGINE=django.db.backends.postgresql
+   DJANGO_SQL_DATABASE=${POSTGRES_DB}
+   DJANGO_SQL_USER=${POSTGRES_USER}
+   DJANGO_SQL_PASSWORD=${POSTGRES_PASSWORD}
+   DJANGO_SQL_HOST=database
+   DJANGO_SQL_PORT=5432
+   SECRET_KEY="your_production_secret_key"
+
+   ACME_EMAIL=your_email@example.com
+   DJANGO_HOST=yourdomain.com
    ```
 
 3. **Build and Start Containers**:
 
+   Development
    ```bash
-   docker-compose up --build
+   docker-compose -f docker-compose.dev.yml --env-file .env.dev up --build
+   ```
 
+   Production
+   ```bash
+   docker-compose -f docker-compose.prod.yml --env-file .env.prod up -d
    ```
 
 4. **Migrate the Database**(after the containers have started):
