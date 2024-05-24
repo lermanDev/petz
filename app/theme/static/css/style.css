@@ -4176,3 +4176,11 @@ div#sticky-header {
 .other-find i.flaticon-location {
     margin-right: 10px;
 }
+
+.find-wrap .find-category ul li a {
+    line-height: 22px;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
