@@ -26,7 +26,7 @@ class Shelter(models.Model):
     website = models.URLField(null=True, blank=True, verbose_name="Website")
     description = models.TextField(null=True, blank=True, verbose_name="Description")
     image = models.ImageField(
-        upload_to="static/shelters/gallery/",
+        upload_to="shelters/gallery/",
         null=True,
         blank=True,
         verbose_name="Principal Image",

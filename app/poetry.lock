@@ -173,6 +173,24 @@ python-versions = ">=3.8"
 python-dateutil = ">=2.4"
 
 [[package]]
+name = "gunicorn"
+version = "22.0.0"
+description = "WSGI HTTP Server for UNIX"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+packaging = "*"
+
+[package.extras]
+eventlet = ["eventlet (>=0.24.1,!=0.36.0)"]
+gevent = ["gevent (>=1.4.0)"]
+setproctitle = ["setproctitle"]
+testing = ["gevent", "eventlet", "coverage", "pytest", "pytest-cov"]
+tornado = ["tornado (>=0.2)"]
+
+[[package]]
 name = "idna"
 version = "3.7"
 description = "Internationalized Domain Names in Applications (IDNA)"
@@ -393,7 +411,7 @@ zstd = ["zstandard (>=0.18.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.9,<3.13"
-content-hash = "4184bd9e656a3bc6dce06d436bccfc8956033019dfc936e9eb0e51f862755f03"
+content-hash = "58177065d28d9d2e48056b2a657d5e1534c2631d2782451edfd89cf03f3698cb"
 
 [metadata.files]
 asgiref = []
@@ -410,6 +428,7 @@ django-jazzmin = []
 django-tinymce = []
 exceptiongroup = []
 faker = []
+gunicorn = []
 idna = []
 iniconfig = []
 mypy-extensions = []

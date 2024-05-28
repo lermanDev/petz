@@ -20,6 +20,7 @@ faker = "^25.2.0"
 requests = "^2.31.0"
 django-jazzmin = "^3.0.0"
 django-tinymce = "^4.0.0"
+gunicorn = "^22.0.0"
 
 
 [build-system]

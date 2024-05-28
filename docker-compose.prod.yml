@@ -11,14 +11,17 @@ x-app: &django-app
   networks:
     - app-network
   environment:
-    DEBUG: "0"
+    DEBUG: ${DEBUG}
     DJANGO_SQL_ENGINE: ${DJANGO_SQL_ENGINE}
     DJANGO_SQL_DATABASE: ${DJANGO_SQL_DATABASE}
     DJANGO_SQL_USER: ${DJANGO_SQL_USER}
     DJANGO_SQL_PASSWORD: ${DJANGO_SQL_PASSWORD}
-    DJANGO_SQL_HOST: database
+    DJANGO_SQL_HOST: ${DJANGO_SQL_HOST}
     DJANGO_SQL_PORT: ${DJANGO_SQL_PORT}
     SECRET_KEY: ${SECRET_KEY}
+    DJANGO_ALLOWED_HOSTS: ${DJANGO_ALLOWED_HOSTS}
+    DJANGO_HOST: ${DJANGO_HOST}
+    DJANGO_CSRF_TRUSTED_ORIGINS: ${DJANGO_CSRF_TRUSTED_ORIGINS}
   restart: "unless-stopped"
 
 services:
@@ -43,7 +46,26 @@ services:
       - "./letsencrypt:/letsencrypt"
     networks:
       - app-network
-
+    depends_on:
+      - web
+  nginx:
+    image: nginx:alpine
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./app/staticfiles:/usr/share/nginx/html/static:ro
+      - ./app/media:/usr/share/nginx/html/media:ro
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.nginx.rule=(Host(`${DJANGO_HOST}`) && PathPrefix(`/static`)) || (Host(`${DJANGO_HOST}`) && PathPrefix(`/media`))"
+      - "traefik.http.routers.nginx.entrypoints=websecure"
+      - "traefik.http.routers.nginx.tls.certresolver=myresolver"
+      - "traefik.docker.network=app-network"
+    networks:
+      - app-network
+    environment:
+      DJANGO_HOST: ${DJANGO_HOST}
+    depends_on:
+      - web
   database:
     image: postgres:14
     environment:
@@ -52,7 +74,6 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     networks:
       - app-network
-
   web:
     <<: *django-app
     command: "poetry run gunicorn app.wsgi:application --bind 0.0.0.0:8000"
@@ -62,6 +83,10 @@ services:
       - "traefik.http.routers.django.entrypoints=websecure"
       - "traefik.http.routers.django.tls.certresolver=myresolver"
       - "traefik.docker.network=app-network"
-
+    expose:
+      - "8000"
+    volumes:
+      - "./app/staticfiles:/app/staticfiles"
+      - "./app/media:/app/media"
 networks:
   app-network:

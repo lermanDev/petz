@@ -56,7 +56,7 @@ class Size(models.Model):
 
 
 class PetImage(models.Model):
-    image = models.ImageField(upload_to="static/pets/gallery/")
+    image = models.ImageField(upload_to="pets/gallery/")
 
     class Meta:
         verbose_name = "Pet Image"

@@ -39,8 +39,7 @@ Welcome to the CMS Pet Adoption Project! This project uses Django and htmx to cr
    ```
 
    env.prod
-   ```env
-   POSTGRES_DB=mydb
+   ```envPOSTGRES_DB=mydb
    POSTGRES_USER=myuser
    POSTGRES_PASSWORD=mypassword
 
@@ -51,10 +50,11 @@ Welcome to the CMS Pet Adoption Project! This project uses Django and htmx to cr
    DJANGO_SQL_PASSWORD=${POSTGRES_PASSWORD}
    DJANGO_SQL_HOST=database
    DJANGO_SQL_PORT=5432
-   SECRET_KEY="your_production_secret_key"
+   SECRET_KEY=your_production_secret_key
 
    ACME_EMAIL=your_email@example.com
-   DJANGO_HOST=yourdomain.com
+   DJANGO_HOST=demo.petz.es
+   DJANGO_ALLOWED_HOSTS=${DJANGO_HOST},localhost,127.0.0.1
    ```
 
 3. **Build and Start Containers**:
