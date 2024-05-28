@@ -1,4 +1,5 @@
 from django.db import models
+from adoption.models import Questionnaire
 from shelter.models import Shelter
 from django.template.defaultfilters import slugify
 from django.urls import reverse
@@ -100,6 +101,9 @@ class Pet(models.Model):
                 "name": self.name,
             },
         )
+    
+    def has_questionnaire(self):
+        return Questionnaire.objects.filter(shelter=self.shelter).exists()
 
     class Meta:
         verbose_name = "Pet"

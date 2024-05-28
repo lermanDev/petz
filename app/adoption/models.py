@@ -1,5 +1,4 @@
 from django.db import models
-from pet.models import Pet
 from adopter.models import Adopter
 
 

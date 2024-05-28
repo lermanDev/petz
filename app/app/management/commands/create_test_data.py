@@ -4,6 +4,7 @@ from django.core.management.base import BaseCommand
 from django.utils.text import slugify
 from django.contrib.auth import get_user_model
 from django.utils import timezone
+from adoption.models import Questionnaire, Question, QuestionType, Option
 from pet.models import Specie, Characteristic, Gender, Size, Pet, PetImage
 from shelter.models import Shelter, State
 from blog.models import BlogCategory, BlogPost, Comment, Tag
@@ -53,6 +54,7 @@ class Command(BaseCommand):
                 options['comments'],
                 options['tags']
             )
+        self.create_questionnaires()
         self.stdout.write(self.style.SUCCESS('Test data created successfully'))
 
     def create_species(self, count):
@@ -189,3 +191,46 @@ class Command(BaseCommand):
                 print(f"Failed to download image from {url}: HTTP {response.status_code}")
         except Exception as e:
             print(f"An error occurred while downloading or saving the image: {e}")
+
+    def create_questionnaires(self):
+        shelters = Shelter.objects.all()
+        for shelter in shelters:
+            questionnaire = Questionnaire.objects.create(
+                title=f'Adoption Questionnaire for {shelter.name}',
+                shelter=shelter
+            )
+            self.create_questions(questionnaire)
+
+    def create_questions(self, questionnaire):
+        question_texts = [
+            'Why do you want to adopt a pet?',
+            'Do you have experience with pets?',
+            'Do you have a suitable living environment for a pet?',
+            'How many hours will the pet be alone each day?'
+        ]
+
+        for text in question_texts:
+            question = Question.objects.create(
+                text=text,
+                question_type=fake.random_element([QuestionType.TEXT, QuestionType.SELECT, QuestionType.CHECKBOX]),
+                value=fake.random_int(min=1, max=5),
+                parent_question=None,
+                questionnaire=questionnaire
+            )
+            if question.question_type in [QuestionType.SELECT, QuestionType.CHECKBOX]:
+                self.create_options(question)
+
+    def create_options(self, question):
+        option_texts = [
+            'Yes',
+            'No',
+            'Maybe',
+            'Not applicable'
+        ]
+
+        for text in option_texts:
+            Option.objects.create(
+                question=question,
+                text=text,
+                value=fake.random_int(min=1, max=5)
+            )

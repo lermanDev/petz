@@ -42,12 +42,6 @@
                         <div class="row">
                             <div class="col-md-3 col-sm-4 col-6">
                                 <div class="breeder-info-item">
-                                    <h6>Gender:</h6>
-                                    <span>Male</span>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-4 col-6">
-                                <div class="breeder-info-item">
                                     <h6>Weight:</h6>
                                     <span>{{ pet.weight }}</span>
                                 </div>
@@ -86,12 +80,20 @@
                             </div>
                             <div class="col-md-3 col-sm-4 col-6">
                                 <div class="breeder-info-item">
+                                    <h6>Gender:</h6>
+                                    <span>Male</span>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-sm-4 col-6">
+                                <div class="breeder-info-item">
                                     <h6>Age:</h6>
                                     <span>1 year</span>
                                 </div>
                             </div>
                         </div>
-                        <a href="contact.html" class="btn">Apply Today <img src="img/icon/w_pawprint.png" alt=""></a>
+                        {% if pet.has_questionnaire %}
+                        <a href="{% url 'apply_for_adoption' pet.id %}" class="btn">Apply Today <img src="img/icon/w_pawprint.png" alt=""></a>
+                        {% endif %}
                     </div>
                 </div>
             </div>

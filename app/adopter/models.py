@@ -1,8 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
-from pet.models import Specie, Size, Pet
-
 
 # class Adopter(AbstractUser):
 #     email = models.EmailField(unique=True)
@@ -45,16 +43,4 @@ class AdopterProfile(BaseModel):
     )
     notes = models.TextField(
         blank=True, null=True, verbose_name="Adoption Notes or Preferences"
-    )
-
-
-class AdopterPreferences(BaseModel):
-    adopter = models.OneToOneField(Adopter, on_delete=models.CASCADE)
-
-    # Preferences for adoptions
-    preferred_pet_size = models.ForeignKey(
-        Size, blank=True, null=True, on_delete=models.PROTECT
-    )
-    preferred_species = models.ManyToManyField(
-        Specie, blank=True, verbose_name="Preferred Species"
     )
