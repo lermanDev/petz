@@ -2,6 +2,7 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView, DetailView
 from django.shortcuts import get_object_or_404, render
 from .models import Questionnaire, AdoptionApplication
+from pet.models import Pet
 from .forms import AdoptionApplicationForm
 from blog.filters import BlogFilter
 

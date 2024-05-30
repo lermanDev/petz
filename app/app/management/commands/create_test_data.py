@@ -200,6 +200,7 @@ class Command(BaseCommand):
                 shelter=shelter
             )
             self.create_questions(questionnaire)
+            questionnaire.save()
 
     def create_questions(self, questionnaire):
         question_texts = [
@@ -219,6 +220,7 @@ class Command(BaseCommand):
             )
             if question.question_type in [QuestionType.SELECT, QuestionType.CHECKBOX]:
                 self.create_options(question)
+            question.save()
 
     def create_options(self, question):
         option_texts = [
@@ -229,8 +231,9 @@ class Command(BaseCommand):
         ]
 
         for text in option_texts:
-            Option.objects.create(
+            option = Option.objects.create(
                 question=question,
                 text=text,
                 value=fake.random_int(min=1, max=5)
             )
+            option.save()
