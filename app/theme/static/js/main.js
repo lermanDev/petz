@@ -113,18 +113,18 @@ function mainSlider() {
 		var $animatingElements = $('.single-slider[data-slick-index="' + nextSlide + '"]').find('[data-animation]');
 		doAnimations($animatingElements);
 	});
-	BasicSlider.slick({
-		autoplay: false,
-		autoplaySpeed: 10000,
-		dots: false,
-		fade: true,
-		arrows: true,
-		prevArrow: '<button type="button" class="slick-prev"><img src="/static/img/icon/arrow.png" /></button>',
-		nextArrow: '<button type="button" class="slick-next"><img src="/static/img/icon/arrow.png" /></button>',
-		responsive: [
-			{ breakpoint: 767, settings: { dots: false, arrows: false } }
-		]
-	});
+	// BasicSlider.slick({
+	// 	autoplay: false,
+	// 	autoplaySpeed: 10000,
+	// 	dots: false,
+	// 	fade: true,
+	// 	arrows: true,
+	// 	prevArrow: '<button type="button" class="slick-prev"><img src="/static/img/icon/arrow.png" /></button>',
+	// 	nextArrow: '<button type="button" class="slick-next"><img src="/static/img/icon/arrow.png" /></button>',
+	// 	responsive: [
+	// 		{ breakpoint: 767, settings: { dots: false, arrows: false } }
+	// 	]
+	// });
 
 	function doAnimations(elements) {
 		var animationEndEvents = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
@@ -229,48 +229,48 @@ $('.breeder-active').owlCarousel({
 /*=============================================
 	=    		Brand Active		      =
 =============================================*/
-$('.brand-active').slick({
-	dots: false,
-	infinite: true,
-	speed: 1000,
-	autoplay: true,
-	arrows: false,
-	slidesToShow: 6,
-	slidesToScroll: 2,
-	responsive: [
-		{
-			breakpoint: 1200,
-			settings: {
-				slidesToShow: 5,
-				slidesToScroll: 1,
-				infinite: true,
-			}
-		},
-		{
-			breakpoint: 992,
-			settings: {
-				slidesToShow: 4,
-				slidesToScroll: 1
-			}
-		},
-		{
-			breakpoint: 767,
-			settings: {
-				slidesToShow: 3,
-				slidesToScroll: 1,
-				arrows: false,
-			}
-		},
-		{
-			breakpoint: 575,
-			settings: {
-				slidesToShow: 2,
-				slidesToScroll: 1,
-				arrows: false,
-			}
-		},
-	]
-});
+// $('.brand-active').slick({
+// 	dots: false,
+// 	infinite: true,
+// 	speed: 1000,
+// 	autoplay: true,
+// 	arrows: false,
+// 	slidesToShow: 6,
+// 	slidesToScroll: 2,
+// 	responsive: [
+// 		{
+// 			breakpoint: 1200,
+// 			settings: {
+// 				slidesToShow: 5,
+// 				slidesToScroll: 1,
+// 				infinite: true,
+// 			}
+// 		},
+// 		{
+// 			breakpoint: 992,
+// 			settings: {
+// 				slidesToShow: 4,
+// 				slidesToScroll: 1
+// 			}
+// 		},
+// 		{
+// 			breakpoint: 767,
+// 			settings: {
+// 				slidesToShow: 3,
+// 				slidesToScroll: 1,
+// 				arrows: false,
+// 			}
+// 		},
+// 		{
+// 			breakpoint: 575,
+// 			settings: {
+// 				slidesToShow: 2,
+// 				slidesToScroll: 1,
+// 				arrows: false,
+// 			}
+// 		},
+// 	]
+// });
 
 
 /*=============================================
@@ -380,78 +380,78 @@ $('.testimonial-active').slick({
 /*=============================================
 	=        Related Product Active          =
 =============================================*/
-$('.related-product-active').slick({
-	dots: false,
-	infinite: true,
-	speed: 1000,
-	autoplay: false,
-	arrows: false,
-	autoplaySpeed: 3000,
-	slidesToShow: 4,
-	slidesToScroll: 1,
-	responsive: [
-		{
-			breakpoint: 1200,
-			settings: {
-				slidesToShow: 3,
-				slidesToScroll: 1,
-				infinite: true,
-			}
-		},
-		{
-			breakpoint: 992,
-			settings: {
-				slidesToShow: 2,
-				slidesToScroll: 1,
-				speed: 1000,
-			}
-		},
-		{
-			breakpoint: 767,
-			settings: {
-				slidesToShow: 2,
-				slidesToScroll: 1,
-				arrows: false,
-				speed: 1000,
-			}
-		},
-		{
-			breakpoint: 575,
-			settings: {
-				slidesToShow: 1,
-				slidesToScroll: 1,
-				arrows: false,
-				speed: 1000,
-			}
-		},
-	]
-});
+// $('.related-product-active').slick({
+// 	dots: false,
+// 	infinite: true,
+// 	speed: 1000,
+// 	autoplay: false,
+// 	arrows: false,
+// 	autoplaySpeed: 3000,
+// 	slidesToShow: 4,
+// 	slidesToScroll: 1,
+// 	responsive: [
+// 		{
+// 			breakpoint: 1200,
+// 			settings: {
+// 				slidesToShow: 3,
+// 				slidesToScroll: 1,
+// 				infinite: true,
+// 			}
+// 		},
+// 		{
+// 			breakpoint: 992,
+// 			settings: {
+// 				slidesToShow: 2,
+// 				slidesToScroll: 1,
+// 				speed: 1000,
+// 			}
+// 		},
+// 		{
+// 			breakpoint: 767,
+// 			settings: {
+// 				slidesToShow: 2,
+// 				slidesToScroll: 1,
+// 				arrows: false,
+// 				speed: 1000,
+// 			}
+// 		},
+// 		{
+// 			breakpoint: 575,
+// 			settings: {
+// 				slidesToShow: 1,
+// 				slidesToScroll: 1,
+// 				arrows: false,
+// 				speed: 1000,
+// 			}
+// 		},
+// 	]
+// });
 
 
 /*=============================================
 	=             Adoption Active          =
 =============================================*/
-$('.breeder-gallery-active').slick({
-	dots: true,
-	infinite: true,
-	speed: 1000,
-	autoplay: true,
-	arrows: false,
-	autoplaySpeed: 3000,
-	slidesToShow: 1,
-	slidesToScroll: 1,
-	vertical: true,
-	responsive: [
-		{
-			breakpoint: 575,
-			settings: {
-				slidesToShow: 1,
-				slidesToScroll: 1,
-				arrows: false,
-			}
-		},
-	]
-});
+// $('.breeder-gallery-active').slick({
+// 	dots: true,
+// 	infinite: true,
+// 	speed: 1000,
+// 	autoplay: true,
+// 	arrows: false,
+// 	autoplaySpeed: 3000,
+// 	slidesToShow: 1,
+// 	slidesToScroll: 1,
+// 	vertical: true,
+// 	responsive: [
+// 		{
+// 			breakpoint: 575,
+// 			settings: {
+// 				slidesToShow: 1,
+// 				slidesToScroll: 1,
+// 				arrows: false,
+// 			}
+// 		},
+// 	]
+// });
 
 
 /*=============================================

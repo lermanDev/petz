@@ -32,7 +32,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_htmx",
     "django_filters",
-    'tinymce',
+    "tinymce",
+    "compressor",
     "app",
     "adopter",
     "pet",
@@ -57,6 +58,11 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
+MIDDLEWARE_CLASSES = (
+    'htmlmin.middleware.HtmlMinifyMiddleware',
+    'htmlmin.middleware.MarkRequestMiddleware',
+)
+
 ROOT_URLCONF = "app.urls"
 
 TEMPLATES = [
@@ -70,8 +76,8 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-                'app.context_processors.species_context',
-                'app.context_processors.blog_categories_context',
+                "app.context_processors.species_context",
+                "app.context_processors.blog_categories_context",
             ],
         },
     },
@@ -125,6 +131,17 @@ USE_I18N = True
 
 USE_TZ = True
 
+# Django compressor
+
+STATICFILES_FINDERS = [
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+    "compressor.finders.CompressorFinder",
+]
+COMPRESS_ENABLED = True
+COMPRESS_OFFLINE = False
+
+# Django minify
+HTML_MINIFY = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
