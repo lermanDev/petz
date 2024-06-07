@@ -176,6 +176,14 @@ python-versions = ">=3.8"
 django = ">=4.2"
 
 [[package]]
+name = "django-resized"
+version = "1.0.2"
+description = "Resizes image origin to specified size."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "django-tinymce"
 version = "4.0.0"
 description = "A Django application that contains a widget to render a"
@@ -489,7 +497,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.9,<3.13"
-content-hash = "15a0d24bfac40595198dfd61ae6ba2f1ebc2051021d0574744ac7cf629c9d458"
+content-hash = "421a41f24f56de020edb84ea46e0fc35ab20e561b43d1032a88d7b9755a33478"
 
 [metadata.files]
 asgiref = []
@@ -506,6 +514,7 @@ django-filter = []
 django-htmlmin = []
 django-htmx = []
 django-jazzmin = []
+django-resized = []
 django-tinymce = []
 exceptiongroup = []
 faker = []

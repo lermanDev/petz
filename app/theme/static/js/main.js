@@ -63,82 +63,6 @@ if ($('.scroll-to-target').length) {
   });
 }
 
-/*=============================================
-	=    	 Slider Range Active  	         =
-=============================================*/
-$("#slider-range").slider({
-	range: true,
-	min: 40,
-	max: 600,
-	values: [120, 480],
-	slide: function (event, ui) {
-		$("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
-	}
-});
-$("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
-
-
-/*=============================================
-	=         niceSelect Active            =
-=============================================*/
-$(".selected").niceSelect();
-
-
-/*=============================================
-	=    		Top Selling Active		     =
-=============================================*/
-$('.breed-services-active').owlCarousel({
-	loop: true,
-	margin: 30,
-	items: 2,
-	autoplay: false,
-	autoplayTimeout: 5000,
-	autoplaySpeed: 1000,
-	navText: ['<img src="/static/img/icon/arrow.png" />', '<img src="/static/img/icon/arrow.png" />'],
-	nav: true,
-	dots: false,
-	responsive: {
-		0: {
-			items: 1,
-			center: false,
-			nav: false,
-		},
-		575: {
-			items: 1,
-			center: false,
-			nav: false,
-		},
-		768: {
-			items: 2,
-			center: false,
-			nav: false,
-		},
-		992: {
-			items: 2,
-			center: false,
-			nav: false,
-		},
-		1200: {
-			items: 2
-		},
-	}
-})
-
-
-/*=============================================
-	=    		Top Selling Active		     =
-=============================================*/
-$('.breeder-active').owlCarousel({
-	loop: true,
-	margin: 0,
-	items: 1,
-	autoplay: true,
-	autoplayTimeout: 3000,
-	autoplaySpeed: 1000,
-	nav: false,
-	dots: false,
-})
-
 
 /*=============================================
 	=         Testimonial Active              =
@@ -201,50 +125,6 @@ $('.odometer').appear(function (e) {
 		$(this).html(countNumber);
 	});
 });
-
-
-/*=============================================
-	=    		Magnific Popup		      =
-=============================================*/
-$('.popup-image').magnificPopup({
-	type: 'image',
-	gallery: {
-		enabled: true
-	}
-});
-
-/* magnificPopup video view */
-$('.popup-video').magnificPopup({
-	type: 'iframe'
-});
-
-
-/*=============================================
-	=    		Isotope	Active  	      =
-=============================================*/
-$('.grid').imagesLoaded(function () {
-	// init Isotope
-	var $grid = $('.grid').isotope({
-		itemSelector: '.grid-item',
-		percentPosition: true,
-		masonry: {
-			columnWidth: '.grid-item',
-		}
-	});
-	// filter items on button click
-	$('.portfolio-menu').on('click', 'button', function () {
-		var filterValue = $(this).attr('data-filter');
-		$grid.isotope({ filter: filterValue });
-	});
-
-});
-//for menu active class
-	$('.product-license li,.shop-details-dimension li,.shop-details-color li').on('click', function (event) {
-	$(this).siblings('.active').removeClass('active');
-	$(this).addClass('active');
-	event.preventDefault();
-});
-
 
 $('.pet-images-carousel').owlCarousel({
 	margin:10,

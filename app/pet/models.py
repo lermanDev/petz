@@ -3,6 +3,7 @@ from adoption.models import Questionnaire
 from shelter.models import Shelter
 from django.template.defaultfilters import slugify
 from django.urls import reverse
+from django_resized import ResizedImageField
 
 
 class Specie(models.Model):
@@ -57,7 +58,7 @@ class Size(models.Model):
 
 
 class PetImage(models.Model):
-    image = models.ImageField(upload_to="pets/gallery/")
+    image = image = ResizedImageField(size=[380, 380], upload_to='pets/gallery/', quality=75, force_format='WEBP')
 
     class Meta:
         verbose_name = "Pet Image"
