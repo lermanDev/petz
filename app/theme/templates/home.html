@@ -117,7 +117,7 @@
         <div class="row justify-content-center">
             <div class="col-xl-7 col-lg-9">
                 <div class="section-title text-center mb-65">
-                    <div class="section-icon"><img src="/static/img/icon/pawprint.png" alt=""></div>
+                    <div class="section-icon"><img src="/static/img/icon/pawprint.png" alt="" loading="lazy"></div>
                     <h5 class="sub-title">Our last petz</h5>
                     <h2 class="title">Waiting for Adoption</h2>
                     <p>You're one step closer to finding your best friend. Remember, when you adopt, you save two lives: the one you bring home and the one that takes their place.</p>
@@ -140,7 +140,7 @@
         <div class="row justify-content-center">
             <div class="col-xl-7 col-lg-9">
                 <div class="section-title text-center mb-65">
-                    <div class="section-icon"><img src="/static/img/icon/pawprint.png" alt=""></div>
+                    <div class="section-icon"><img src="/static/img/icon/pawprint.png" alt="" loading="lazy"></div>
                     <h5 class="sub-title">Meet The Shelters</h5>
                     <h2 class="title">Our Real Heroes</h2>
                     <p>You're one step closer to finding your best friend. Remember, when you adopt, you save two lives: the one you bring home and the one that takes their place.</p>
@@ -153,9 +153,9 @@
                     <div class="testimonial-item">
                         <div class="testi-avatar-thumb">
                             {% if shelter.image %}
-                                <img src="{{ shelter.image.url }}" alt="{{ shelter.name }}">
+                                <img src="{{ shelter.image.url }}" alt="{{ shelter.name }}" loading="lazy">
                             {% else %}
-                                <img src="/static/img/images/default_avatar.png" alt="Default Avatar">
+                                <img src="/static/img/images/default_avatar.png" alt="Default Avatar" loading="lazy">
                             {% endif %}
                         </div>
                         <div class="testi-content">
@@ -180,7 +180,7 @@
         <div class="row justify-content-center">
             <div class="col-xl-7 col-lg-9">
                 <div class="section-title text-center mb-65">
-                    <div class="section-icon"><img src="/static/img/icon/pawprint.png" alt=""></div>
+                    <div class="section-icon"><img src="/static/img/icon/pawprint.png" alt="" loading="lazy"></div>
                     <h5 class="sub-title">Our News</h5>
                     <h2 class="title">Latest News Update</h2>
                     <p>You're one step closer to finding your best friend. Remember, when you adopt, you save two lives: the one you bring home and the one that takes their place.</p>
@@ -192,7 +192,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="blog-post-item mb-50">
                         <div class="blog-post-thumb">
-                            <a href="{% url 'blog_detail' blog.slug %}"><img src="{{ blog.image.url|default:'/static/img/blog/blog_thumb01.jpg' }}" alt="{{ blog.title }}"></a>
+                            <a href="{% url 'blog_detail' blog.slug %}"><img src="{{ blog.image.url|default:'/static/img/blog/blog_thumb01.jpg' }}" alt="{{ blog.title }}" loading="lazy"></a>
                             <div class="blog-post-tag">
                                 <a href="#"><i class="flaticon-bookmark-1"></i>{{ blog.category.name }}</a>
                             </div>
@@ -206,7 +206,7 @@
                             </div>
                             <h3 class="title"><a href="{% url 'blog_detail' blog.slug %}">{{ blog.title }}</a></h3>
                             <p>{{ blog.excerpt|truncatechars:100 }}</p>
-                            <a href="{% url 'blog_detail' blog.slug %}" class="read-more">Read More <img src="/static/img/icon/pawprint.png" alt=""></a>
+                            <a href="{% url 'blog_detail' blog.slug %}" class="read-more">Read More <img src="/static/img/icon/pawprint.png" alt="" loading="lazy"></a>
                         </div>
                     </div>
                 </div>

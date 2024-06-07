@@ -1,7 +1,7 @@
 <div class="col-lg-4 col-md-6">
     <div class="adoption-shop-item">
         <div class="adoption-shop-thumb">
-            <img src='{{ pet.images.all.first.image.url|default:"https://adoptasalvaunavida.com/imas/animales/_2755/thumbnail_square.jpg" }}' alt="">
+            <img src='{{ pet.images.all.first.image.url|default:"https://adoptasalvaunavida.com/imas/animales/_2755/thumbnail_square.jpg" }}' alt="{{ pet.name }} on adoption" loading="lazy">
             <a href="{% url 'pet' pet.specie.name pet.shelter.city pet.id pet.name %}" hx-boost="false" hx-target="#main_content" hx-swap="transition:true" class="btn">Adoption <img src="/static/img/icon/w_pawprint.png" alt=""></a>
         </div>
         <div class="adoption-shop-content">
