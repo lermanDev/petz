@@ -2,21 +2,6 @@
 	"use strict";
 
 /*=============================================
-	=    		 Preloader			      =
-=============================================*/
-function preloader() {
-	$('#preloader').delay(0).fadeOut();
-};
-
-$(window).on('load', function () {
-	//preloader();
-	//mainSlider();
-	wowAnimation();
-});
-
-
-
-/*=============================================
 	=    		Mobile Menu			      =
 =============================================*/
 //SubMenu Dropdown Toggle
@@ -77,77 +62,6 @@ if ($('.scroll-to-target').length) {
 
   });
 }
-
-
-/*=============================================
-	=           Data Background             =
-=============================================*/
-$("[data-background]").each(function () {
-	$(this).css("background-image", "url(" + $(this).attr("data-background") + ")")
-})
-
-
-/*=============================================
-	=            Header Search            =
-=============================================*/
-$(".header-search > a").on('click', function () {
-	$(".search-popup-wrap").slideToggle();
-	return false;
-});
-
-$(".search-close").on('click',function () {
-	$(".search-popup-wrap").slideUp(500);
-});
-
-
-/*=============================================
-	=    		 Main Slider		      =
-=============================================*/
-// function mainSlider() {
-// 	var BasicSlider = $('.slider-active');
-// 	BasicSlider.on('init', function (e, slick) {
-// 		var $firstAnimatingElements = $('.single-slider:first-child').find('[data-animation]');
-// 		doAnimations($firstAnimatingElements);
-// 	});
-// 	BasicSlider.on('beforeChange', function (e, slick, currentSlide, nextSlide) {
-// 		var $animatingElements = $('.single-slider[data-slick-index="' + nextSlide + '"]').find('[data-animation]');
-// 		doAnimations($animatingElements);
-// 	});
-// 	// BasicSlider.slick({
-// 	// 	autoplay: false,
-// 	// 	autoplaySpeed: 10000,
-// 	// 	dots: false,
-// 	// 	fade: true,
-// 	// 	arrows: true,
-// 	// 	prevArrow: '<button type="button" class="slick-prev"><img src="/static/img/icon/arrow.png" /></button>',
-// 	// 	nextArrow: '<button type="button" class="slick-next"><img src="/static/img/icon/arrow.png" /></button>',
-// 	// 	responsive: [
-// 	// 		{ breakpoint: 767, settings: { dots: false, arrows: false } }
-// 	// 	]
-// 	// });
-
-// 	function doAnimations(elements) {
-// 		var animationEndEvents = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-// 		elements.each(function () {
-// 			var $this = $(this);
-// 			var $animationDelay = $this.data('delay');
-// 			var $animationDuration = $this.data('duration');
-// 			var $animationType = 'animated ' + $this.data('animation');
-// 			$this.css({
-// 				'animation-delay': $animationDelay,
-// 				'-webkit-animation-delay': $animationDelay,
-// 			});
-// 			$this.css({
-// 				'animation-duration': $animationDuration,
-// 				'-webkit-animation-duration': $animationDuration,
-// 			});
-// 			$this.addClass($animationType).one(animationEndEvents, function () {
-// 				$this.removeClass($animationType);
-// 			});
-// 		});
-// 	}
-// }
-
 
 /*=============================================
 	=    	 Slider Range Active  	         =
@@ -227,53 +141,6 @@ $('.breeder-active').owlCarousel({
 
 
 /*=============================================
-	=    		Brand Active		      =
-=============================================*/
-// $('.brand-active').slick({
-// 	dots: false,
-// 	infinite: true,
-// 	speed: 1000,
-// 	autoplay: true,
-// 	arrows: false,
-// 	slidesToShow: 6,
-// 	slidesToScroll: 2,
-// 	responsive: [
-// 		{
-// 			breakpoint: 1200,
-// 			settings: {
-// 				slidesToShow: 5,
-// 				slidesToScroll: 1,
-// 				infinite: true,
-// 			}
-// 		},
-// 		{
-// 			breakpoint: 992,
-// 			settings: {
-// 				slidesToShow: 4,
-// 				slidesToScroll: 1
-// 			}
-// 		},
-// 		{
-// 			breakpoint: 767,
-// 			settings: {
-// 				slidesToShow: 3,
-// 				slidesToScroll: 1,
-// 				arrows: false,
-// 			}
-// 		},
-// 		{
-// 			breakpoint: 575,
-// 			settings: {
-// 				slidesToShow: 2,
-// 				slidesToScroll: 1,
-// 				arrows: false,
-// 			}
-// 		},
-// 	]
-// });
-
-
-/*=============================================
 	=         Testimonial Active              =
 =============================================*/
 $('.testimonial-active').slick({
@@ -321,157 +188,6 @@ $('.testimonial-active').slick({
 			}
 		},
 	]
-});
-
-
-/*=============================================
-	=             Adoption Active          =
-=============================================*/
-// $('.adopt-active').slick({
-// 	dots: false,
-// 	infinite: true,
-// 	speed: 1000,
-// 	autoplay: false,
-// 	arrows: true,
-// 	autoplaySpeed: 3000,
-// 	prevArrow: '<button type="button" class="slick-prev"><img src="/static/img/icon/arrow.png" /></button>',
-// 	nextArrow: '<button type="button" class="slick-next"><img src="/static/img/icon/arrow.png" /></button>',
-// 	slidesToShow: 4,
-// 	slidesToScroll: 1,
-// 	responsive: [
-// 		{
-// 			breakpoint: 1200,
-// 			settings: {
-// 				slidesToShow: 3,
-// 				slidesToScroll: 1,
-// 				infinite: true,
-// 			}
-// 		},
-// 		{
-// 			breakpoint: 992,
-// 			settings: {
-// 				slidesToShow: 2,
-// 				slidesToScroll: 1,
-// 				speed: 1000,
-// 			}
-// 		},
-// 		{
-// 			breakpoint: 767,
-// 			settings: {
-// 				slidesToShow: 2,
-// 				slidesToScroll: 1,
-// 				arrows: false,
-// 				speed: 1000,
-// 			}
-// 		},
-// 		{
-// 			breakpoint: 575,
-// 			settings: {
-// 				slidesToShow: 1,
-// 				slidesToScroll: 1,
-// 				arrows: false,
-// 				speed: 1000,
-// 			}
-// 		},
-// 	]
-// });
-
-
-/*=============================================
-	=        Related Product Active          =
-=============================================*/
-// $('.related-product-active').slick({
-// 	dots: false,
-// 	infinite: true,
-// 	speed: 1000,
-// 	autoplay: false,
-// 	arrows: false,
-// 	autoplaySpeed: 3000,
-// 	slidesToShow: 4,
-// 	slidesToScroll: 1,
-// 	responsive: [
-// 		{
-// 			breakpoint: 1200,
-// 			settings: {
-// 				slidesToShow: 3,
-// 				slidesToScroll: 1,
-// 				infinite: true,
-// 			}
-// 		},
-// 		{
-// 			breakpoint: 992,
-// 			settings: {
-// 				slidesToShow: 2,
-// 				slidesToScroll: 1,
-// 				speed: 1000,
-// 			}
-// 		},
-// 		{
-// 			breakpoint: 767,
-// 			settings: {
-// 				slidesToShow: 2,
-// 				slidesToScroll: 1,
-// 				arrows: false,
-// 				speed: 1000,
-// 			}
-// 		},
-// 		{
-// 			breakpoint: 575,
-// 			settings: {
-// 				slidesToShow: 1,
-// 				slidesToScroll: 1,
-// 				arrows: false,
-// 				speed: 1000,
-// 			}
-// 		},
-// 	]
-// });
-
-
-/*=============================================
-	=             Adoption Active          =
-=============================================*/
-// $('.breeder-gallery-active').slick({
-// 	dots: true,
-// 	infinite: true,
-// 	speed: 1000,
-// 	autoplay: true,
-// 	arrows: false,
-// 	autoplaySpeed: 3000,
-// 	slidesToShow: 1,
-// 	slidesToScroll: 1,
-// 	vertical: true,
-// 	responsive: [
-// 		{
-// 			breakpoint: 575,
-// 			settings: {
-// 				slidesToShow: 1,
-// 				slidesToScroll: 1,
-// 				arrows: false,
-// 			}
-// 		},
-// 	]
-// });
-
-
-/*=============================================
-	=    		 Cart Active  	         =
-=============================================*/
-$(".cart-plus-minus").append('<div class="dec qtybutton">-</div><div class="inc qtybutton">+</div>');
-$(".qtybutton").on("click", function () {
-	var $button = $(this);
-	var oldValue = $button.parent().find("input").val();
-	if ($button.text() == "+") {
-		var newVal = parseFloat(oldValue) + 1;
-	} else {
-		// Don't allow decrementing below zero
-		if (oldValue > 0) {
-			var newVal = parseFloat(oldValue) - 1;
-		} else {
-			newVal = 0;
-		}
-	}
-	$button.parent().find("input").val(newVal);
 });
 
 
@@ -528,21 +244,6 @@ $('.grid').imagesLoaded(function () {
 	$(this).addClass('active');
 	event.preventDefault();
 });
-
-
-/*=============================================
-	=    		 Wow Active  	         =
-=============================================*/
-function wowAnimation() {
-	var wow = new WOW({
-		boxClass: 'wow',
-		animateClass: 'animated',
-		offset: 0,
-		mobile: false,
-		live: true
-	});
-	wow.init();
-}
 
 
 $('.pet-images-carousel').owlCarousel({

@@ -39,10 +39,12 @@
         <link rel="stylesheet" href="/static/css/slick.css">
         <link rel="stylesheet" href="/static/css/default.css">
         {% endcompress %}
-
+        {% compress css %}
         <link rel="stylesheet" href="/static/css/style.css">
+        {% endcompress %}
+        {% compress css %}
         <link rel="stylesheet" href="/static/css/responsive.css">
-        
+        {% endcompress %}
 		<script src="https://unpkg.com/htmx.org@1.9.12/dist/htmx.min.js"></script>
     </head>
     <body>
@@ -83,7 +85,6 @@
         <script src="/static/js/jquery-ui.min.js"></script>
         <script src="/static/js/jquery.appear.js"></script>
         <script src="/static/js/slick.min.js"></script>
-        <script src="/static/js/wow.min.js"></script>
         <script src="/static/js/plugins.js"></script>
         <script src="/static/js/main.js"></script>
         {% endcompress %}
