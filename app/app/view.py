@@ -4,6 +4,7 @@ from pet.models import Pet
 from adopter.models import Adopter
 from blog.models import BlogPost
 from shelter.models import Shelter
+from django.views.decorators.cache import cache_page
 
 class HomeView(TemplateView):
     template_name = 'home.html'

@@ -36,6 +36,7 @@
 
 
 /* 1. Theme default css */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,600;1,700&display=swap');
 body {
 	font-family: 'Poppins', sans-serif;
 	font-weight: 400;
@@ -1048,16 +1049,6 @@ div#sticky-header {
     margin-bottom: 0;
     letter-spacing: -.9px;
 }
-.slider-content .title > span {
-    position: relative;
-    z-index: 1;
-    background-image: url(/static/img/images/banner_text_shape.svg);
-    padding: 11px 20px;
-    display: inline-flex;
-    line-height: .8;
-    background-size: cover;
-    background-position: top center;
-}
 .slider-desc {
 	overflow: hidden;
     margin-bottom: 45px;
@@ -1075,7 +1066,6 @@ div#sticky-header {
     left: 40%;
     top: 20%;
     z-index: 1;
-	animation: 1.5s shake infinite;
 }
 .slider-shape.shape-two {
     left: 32%;
@@ -1122,7 +1112,6 @@ div#sticky-header {
     top: 50%;
     left: 0%;
     transform: rotateY(180deg) translateY(-50%);
-    background-image: url(/static/img/slider/slider_arrow_shape.png)!important;
     background-position: right !important;
     background-repeat: no-repeat !important;
     padding: 10px 16px !important;
@@ -1198,7 +1187,6 @@ div#sticky-header {
     background: #f04336;
     position: relative;
     margin-left: 80px;
-	background-image: url(/static/img/images/find_shape.png);
 	background-position: bottom right;
 	background-repeat: no-repeat;
 }
@@ -1257,8 +1245,6 @@ div#sticky-header {
 	display: inline-block;
     margin-left: 25px;
     vertical-align: middle;
-    content: "\f107";
-    font-family: "Font Awesome 5 Free";
     font-weight: 700;
     border-top: none;
     border-right: none;
@@ -2184,11 +2170,9 @@ div#sticky-header {
 	z-index: 1;
 }
 .testimonial-item::before {
-    content: "\f10d";
     position: absolute;
     bottom: 21%;
     right: 9%;
-    font-family: "Flaticon";
     font-size: 42px;
     color: #f04336;
     line-height: 1;
@@ -2308,11 +2292,9 @@ div#sticky-header {
     font-weight: 500;
 }
 .shop-brand-list ul li a::before {
-    content: "\f1ce";
     position: absolute;
     left: 0;
     top: 0;
-    font-family: "Font Awesome 5 Free";
     font-weight: 700;
     font-size: 12px;
     -webkit-transition: all 0.3s ease-out 0s;
@@ -3023,7 +3005,6 @@ div#sticky-header {
     z-index: 1;
 }
 .blog-post-tag a {
-    background-image: url(/static/img/blog/blog_tag_shape.png);
     background-position: center;
     background-size: cover;
     display: inline-flex;
@@ -4038,9 +4019,7 @@ div#sticky-header {
 .footer-lang .dropdown-toggle::after {
     margin-left: .255em;
     vertical-align: middle;
-    content: "\f107";
     border: none !important;
-    font-family: "Font Awesome 5 Free";
     font-weight: 700;
 }
 
@@ -4182,4 +4161,14 @@ div#sticky-header {
     text-align: center;
     align-items: center;
     justify-content: center;
+}
+
+select#speciesSelect, select#stateSelect {
+    padding: 0;
+    background: transparent;
+    text-transform: capitalize;
+    font-size: 16px;
+    font-weight: 900;
+    color: #fff;
+    border:none;
 }

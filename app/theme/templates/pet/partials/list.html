@@ -3,7 +3,9 @@
 <div class="container">
     <div class="row justify-content-center">
         {% for pet in pet_list %}
-            {% include 'pet/partials/list_pet_item.html' with pet=pet %}
+            <div class="col-lg-4 col-md-6">
+                {% include 'pet/partials/list_pet_item.html' with pet=pet %}
+            </div>
         {% endfor %}
     </div>
 

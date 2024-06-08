@@ -10,7 +10,7 @@
                     <div class="col-xl-5 col-lg-7 col-md-10">
                         <div class="slider-content">
                             <div class="slider-title">
-                                <h2 class="title">Best Friend <span>with</span> Happy Time</h2>
+                                <h2 class="title">Best Friend with Happy Time</h2>
                             </div>
                             <div class="slider-desc">
                                 <p class="desc">Human Shampoo on Dogs After six days of delirat, the jury found Hernandez guilty of first-degree murder</p>
@@ -35,16 +35,16 @@
                     <div class="find-wrap">
                         <div class="other-find">
                             <div class="dropdown">
-                                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="flaticon-location"></i> Select state
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <select class="dropdown-toggle" id="stateSelect" onchange="location = this.value;">
+                                    <option value="#">
+                                        Select state
+                                    </option>
                                     {% for state in states_list %}
-                                        <a class="dropdown-item" href="{% url 'pets' %}?shelter__state={{ state.id }}">
-                                            {{ state.name }}
-                                        </a>
+                                    <option value="{% url 'pets' %}?shelter__state={{ state.id }}">
+                                        {{ state.name }}
+                                    </option>
                                     {% endfor %}
-                                </div>
+                                </select>
                             </div>
                         </div>
                         <div class="find-category">
@@ -58,16 +58,16 @@
                         <div class="other-find">
                             
                             <div class="dropdown">
-                                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Find Other Pets
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <select class="dropdown-toggle" id="speciesSelect" onchange="location = this.value;">
+                                    <option value="#">
+                                        Find Other Pets
+                                    </option>
                                     {% for specie in species_list %}
-                                        <a class="dropdown-item" href="{% url 'pets' %}?specie={{ specie.id }}">
-                                            Find Your {{ specie.name }}
-                                        </a>
+                                    <option value="{% url 'pets' %}?specie={{ specie.id }}">
+                                        Find Your {{ specie.name }}
+                                    </option>
                                     {% endfor %}
-                                </div>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -126,7 +126,9 @@
         </div>
         <div class="row justify-content-center">
             {% for pet in latest_pets %}
-                {% include 'pet/partials/list_pet_item.html' with pet=pet %}
+                <div class="col-lg-3 col-md-6">
+                {% include 'pet/partials/list_pet_item.html' with pet=pet %}ç
+                </div>
             {% endfor %}
         </div>
         
@@ -193,9 +195,6 @@
                     <div class="blog-post-item mb-50">
                         <div class="blog-post-thumb">
                             <a href="{% url 'blog_detail' blog.slug %}"><img src="{{ blog.image.url|default:'/static/img/blog/blog_thumb01.jpg' }}" alt="{{ blog.title }}" loading="lazy"></a>
-                            <div class="blog-post-tag">
-                                <a href="#"><i class="flaticon-bookmark-1"></i>{{ blog.category.name }}</a>
-                            </div>
                         </div>
                         <div class="blog-post-content">
                             <div class="blog-post-meta">
