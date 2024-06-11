@@ -1066,6 +1066,7 @@ div#sticky-header {
     left: 40%;
     top: 20%;
     z-index: 1;
+	animation: 1.5s shake infinite;
 }
 .slider-shape.shape-two {
     left: 32%;

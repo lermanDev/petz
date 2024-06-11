@@ -13,7 +13,7 @@
         <link
             rel="preload" 
             href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,600;1,700&display=swap"
-            as="font"
+            as="style"
             />
         
         <link rel="preload" href="/static/img/slider/slider_shape01.png" as="image">
@@ -46,6 +46,12 @@
         <link rel="stylesheet" href="/static/css/style.css" async>
         <link rel="stylesheet" href="/static/css/responsive.css" async>
         {% endcompress %}
+        {% compress js preload %}
+        <script src="/static/js/vendor/jquery-3.6.0.min.js" async></script>
+        {% endcompress %}
+        {% compress js %}
+        <script src="/static/js/vendor/jquery-3.6.0.min.js" async></script>
+        {% endcompress %}
     </head>
     <body>
 
@@ -73,12 +79,6 @@
         <!-- footer-end -->
 
 		<!-- JS here -->
-        {% compress js preload %}
-        <script src="/static/js/vendor/jquery-3.6.0.min.js" async></script>
-        {% endcompress %}
-        {% compress js %}
-        <script src="/static/js/vendor/jquery-3.6.0.min.js" async></script>
-        {% endcompress %}
         {% compress js preload %}
         <script src="/static/js/owl.carousel.min.js" async></script>
         <script src="/static/js/jquery.odometer.min.js" async></script>
