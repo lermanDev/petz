@@ -4,7 +4,7 @@
         <div class="adoption-item">
             <div class="adopt-thumb">
                 {% if shelter.image %}
-                    <a href="{% url 'pets' %}?shelter={{ shelter.id }}"><img src="{{ shelter.image.url }}" alt="{{ shelter.name }}"></a>
+                    <a href="{% url 'pets' %}?shelter={{ shelter.id }}"><img src="{{ shelter.image.url }}" alt="{{ shelter.name }}"  loading="lazy"></a>
                 {% endif %}
             </div>
             <div class="adopt-content">
@@ -14,7 +14,7 @@
                 <p>{{ shelter.address }} {{ shelter.phone }}</p>
                 <p>{{ shelter.email }} {{ shelter.website }}</p>
                 
-                <a href="{% url 'pets' %}?shelter={{ shelter.id }}" class="read-more">Read More <img src="/static/img/icon/pawprint.png" alt=""></a>
+                <a href="{% url 'pets' %}?shelter={{ shelter.id }}" class="read-more">Read More <img src="/static/img/icon/pawprint.png" alt="Dog paw"  loading="lazy"></a>
             </div>
         </div>
     </div>

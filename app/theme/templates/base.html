@@ -10,11 +10,19 @@
 		<link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.png">
         <!-- Place favicon.ico in the root directory -->
 
-        <link
-            rel="preload" 
-            href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,600;1,700&display=swap"
-            as="style"
-            />
+        <link rel=“preconnect” href=“https://fonts.googleapis.com”> 
+        <link rel=“preconnect” href=“https://fonts.gstatic.com” crossorigin> 
+        <link href=“https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,600;1,700&display=swap” rel=“stylesheet”>
+        <style>
+            @font-face {
+                font-family: "flaticon";
+                src: url("/static/fonts/flaticon.ttf?bd3227b7135b7b35971cfd9419559b83") format("truetype"),
+            url("/static/fonts/flaticon.woff?bd3227b7135b7b35971cfd9419559b83") format("woff"),
+            url("/static/fonts/flaticon.woff2?bd3227b7135b7b35971cfd9419559b83") format("woff2"),
+            url("/static/fonts/flaticon.eot?bd3227b7135b7b35971cfd9419559b83#iefix") format("embedded-opentype"),
+            url("/static/fonts/flaticon.svg?bd3227b7135b7b35971cfd9419559b83#flaticon") format("svg");
+            }
+        </style>
         
         <link rel="preload" href="/static/img/slider/slider_shape01.png" as="image">
         <link rel="preload" href="/static/img/slider/slider_shape02.png" as="image">
@@ -94,5 +102,31 @@
         <script src="/static/js/main.js" async></script>
         {% endcompress %}
 		<script src="https://unpkg.com/htmx.org@1.9.12/dist/htmx.min.js" async></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var lazyBackgrounds = [].slice.call(document.querySelectorAll(".lazy-background"));
+
+                if ("IntersectionObserver" in window) {
+                    let lazyBackgroundObserver = new IntersectionObserver(function(entries, observer) {
+                        entries.forEach(function(entry) {
+                            if (entry.isIntersecting) {
+                                entry.target.style.backgroundImage = 'url(' + entry.target.dataset.bg + ')';
+                                lazyBackgroundObserver.unobserve(entry.target);
+                            }
+                        });
+                    });
+
+                    lazyBackgrounds.forEach(function(lazyBackground) {
+                        lazyBackgroundObserver.observe(lazyBackground);
+                    });
+                } else {
+                    // Fallback for browsers that don't support IntersectionObserver
+                    lazyBackgrounds.forEach(function(lazyBackground) {
+                        lazyBackground.style.backgroundImage = 'url(' + lazyBackground.dataset.bg + ')';
+                    });
+                }
+            });
+
+        </script>
     </body>
 </html>
