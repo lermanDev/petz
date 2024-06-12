@@ -88,5 +88,12 @@ services:
     volumes:
       - "./app/staticfiles:/app/staticfiles"
       - "./app/media:/app/media"
+  memcache:
+    image: memcached:alpine
+    ports:
+      - "11211:11211"
+    networks:
+      - app-network
+
 networks:
   app-network:
