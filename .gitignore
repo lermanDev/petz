@@ -165,3 +165,5 @@ app/staticfiles
 
 .env.dev
 .env.prod
+
+postgres_data
