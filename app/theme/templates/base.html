@@ -6,17 +6,22 @@
         <title>Petz - Open CMS Pet adoption project with Django and HTMX.</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-		<link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.png">
         <!-- Place favicon.ico in the root directory -->
+        <link rel=“preconnect” href=“https://fonts.googleapis.com”> 
+        <link rel=“preconnect” href=“https://fonts.gstatic.com” crossorigin> 
 
         <link
             rel="preload" 
             href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,600;1,700&display=swap"
             as="style"
             />
-        <link rel=“preconnect” href=“https://fonts.googleapis.com”> 
-        <link rel=“preconnect” href=“https://fonts.gstatic.com” crossorigin> 
+        <link
+            rel="preload" 
+            href="/static/fonts/flaticon.ttf?bd3227b7135b7b35971cfd9419559b83"
+            as="font"
+            crossorigin
+            />
+
         <style>
             @font-face {
                 font-family: "flaticon";
@@ -28,10 +33,11 @@
             }
         </style>
         
+        <link rel="preload" href="/static/img/favicon.png" as="image">
         <link rel="preload" href="/static/img/slider/slider_shape01.png" as="image">
         <link rel="preload" href="/static/img/slider/slider_shape02.png" as="image">
         <link rel="preload" href="/static/img/slider/slider_bg02.jpg" as="image">
-        <link rel="preload" href="/static/img/bg/header_shape.png" as="image">
+        <link rel="preload" href="/static/img/bg/header_shape.webp" as="image">
 		<!-- CSS here -->
         {% load compress %}
         {% compress css preload %}
@@ -64,6 +70,7 @@
         {% compress js %}
         <script src="/static/js/vendor/jquery-3.6.0.min.js" async></script>
         {% endcompress %}
+		<link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.png">
     </head>
     <body>
 
